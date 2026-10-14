@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python scripts/upload.py:*)",
+      "Bash(python3 scripts/upload.py:*)",
+      "Bash(py scripts/upload.py:*)",
+      "Read(categories.yml)",
+      "Read(待上传/**)"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)"
+    ]
+  }
+}

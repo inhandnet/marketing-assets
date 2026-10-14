@@ -1,0 +1,81 @@
+# ===== 视频：拖到该型号的 Release 页面，仓库 videos/ 只放自动生成的 .yml 说明 =====
+*.mp4
+*.mov
+*.m4v
+*.avi
+*.mkv
+*.wmv
+*.flv
+*.webm
+*.mpg
+*.mpeg
+
+# ===== 设计源文件、印刷级原图：留在设计部存档，仓库只放网页尺寸成品 =====
+*.psd
+*.psb
+*.ai
+*.indd
+*.idml
+*.sketch
+*.fig
+*.xd
+*.cdr
+*.eps
+*.raw
+*.cr2
+*.cr3
+*.nef
+*.arw
+*.dng
+*.heic
+
+# 例外：品牌 Logo 的矢量文件需要提供给合作伙伴
+!*/brand/logo/*.ai
+!*/brand/logo/*.eps
+
+# ===== 3D / 工程文件：放 documents 仓库 =====
+*.stp
+*.step
+*.igs
+*.iges
+*.dwg
+*.sldprt
+*.sldasm
+
+# ===== 压缩包、安装包：不入库（型号整包由程序生成） =====
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.iso
+*.exe
+*.dmg
+
+# ===== 密钥与本地配置（只能放 GitHub Secrets）=====
+.env
+.env.*
+*.pem
+*.key
+.ossutilconfig
+credentials*.json
+
+# ===== Office 临时文件、系统文件 =====
+~$*
+*.tmp
+.DS_Store
+Thumbs.db
+desktop.ini
+.~lock.*
+
+# ===== 开发环境 =====
+__pycache__/
+*.pyc
+.venv/
+venv/
+.vscode/
+.idea/
+
+# ===== 上传工具 =====
+待上传/
+.已上传视频/

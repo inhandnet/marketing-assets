@@ -1,0 +1,8 @@
+# InHand Networks 市场素材 / Marketing Assets
+
+> 映翰通公开市场素材：产品图片、宣传册、彩页规格书、视频，以及解决方案和品牌资料，按中文(zh)/英文(en)组织。
+> 机器可读的完整清单见 catalog.json；工程版规格书与手册见 https://github.com/inhandnet/documents
+
+## 中文素材 (zh)
+
+## English assets (en)

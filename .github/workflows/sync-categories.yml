@@ -1,0 +1,51 @@
+# 每周从中英文官网同步品类 / 系列 / 型号到 categories.yml，有变化时重新生成清单并提交。
+# 对照表完全自动，不需要人维护；官网产品菜单调整后最迟一周内同步。
+name: sync-categories
+
+on:
+  schedule:
+    - cron: "0 1 * * 1"   # 每周一 09:00（北京时间）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-categories
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow pyyaml
+
+      - name: 从官网同步对照表
+        run: python scripts/sync_categories.py
+
+      - name: 对照表有变化时重新生成清单
+        env:
+          CN_BASE_URL: ${{ vars.CN_BASE_URL }}
+        run: |
+          if ! git diff --quiet categories.yml; then
+            python scripts/build.py
+          fi
+
+      - name: 提交
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "无变化"
+          else
+            git commit -m "chore: 从官网同步产品对照表"
+            git pull --rebase origin main
+            git push
+          fi

@@ -1,0 +1,325 @@
+# 自动生成，请勿手改。来源：官网产品分类接口（scripts/sync_categories.py，每周同步）
+# zh = www.inhand.com.cn，en = www.inhand.com；两站产品线不同，分别列出
+# 结构：品类 → 系列 → 型号；没有系列的型号直接列在品类的 models 下；display_names = 中文显示名
+# solutions = 官网「解决方案」下的方案（solutions/ 文件夹名）；solution_names = 方案中文名
+
+zh:
+  categories:
+  - name: 企业无线AP
+    slug: access-points
+    models:
+    - EAP600
+  - name: AI 边缘计算机
+    slug: ai-edge-computers
+    models:
+    - EC3320
+    - EC4600
+    - EC5350
+    - EC5550
+    - EC942
+    - EC954
+    - Mo-62A
+    - Mo-68A
+  - name: 云服务
+    slug: cloud-service
+    models:
+    - AI-Vending-Cloud
+    - Device-Manager
+    - DeviceLive
+    - Eagle-Energy-Manager
+    - InCloud-Manager
+    - InConnect
+  - name: 工业无线数据传输终端
+    slug: dtu
+    models:
+    - InDTU311
+    - InDTU312
+    - InDTU323
+    - InDTU951
+    - InDTU954C
+  - name: 边缘网关 & 边缘计算机
+    slug: edge-gateway-edge-computer
+    models:
+    - EC312
+    - IG101
+    - IG502
+    - IG502-Lite
+    - IG532
+    - IG902
+    - InBOX710
+    - InBOX712
+    - InBOX732
+    - InPAD070S
+    - InPAD101S
+    - InPAD3101
+  - name: LoRaWAN 设备
+    slug: lorawan-devices
+    series:
+    - name: LoRaWAN 数据终端
+      slug: lorawan-end-nodes
+      models:
+      - LT312
+    - name: LoRaWAN 边缘网关
+      slug: lorawan-gateways
+      models:
+      - EC312-LoRaWAN
+  - name: 车载计算机
+    slug: on-board-computers
+    models:
+    - MDT600
+  - name: 5G & 4G 路由器
+    slug: routers
+    series:
+    - name: 便携式路由器
+      slug: cellular-routers
+      models:
+      - CR202-Lite
+    - name: 企业路由器
+      slug: enterprise-routers
+      models:
+      - CPE02
+      - ER2000
+      - ER615
+      - ER815
+    - name: 工业路由器
+      slug: industrial-routers
+      models:
+      - IR202-Lite
+      - IR302
+      - IR315
+      - IR602
+      - IR624
+      - IR925
+      - XCR624
+    - name: 室外路由器
+      slug: outdoor-odu
+      models:
+      - ODU12
+      - ODU2002
+      - ODU302
+  - name: 交换机
+    slug: switches
+    series:
+    - name: 网管型企业交换机
+      slug: managed-enterprise-switches
+      models:
+      - ES620
+    - name: 网管型工业以太网交换机
+      slug: managed-industrial-ethernet-switches
+      models:
+      - ISM3010D
+      - ISM3018D
+      - ISM5010D
+      - ISM7010D
+      - ISM8028U
+    - name: 非网管型企业交换机
+      slug: unmanaged-enterprise-switches
+      models:
+      - ES220
+    - name: 非网管型工业以太网交换机
+      slug: unmanaged-industrial-ethernet-switches
+      models:
+      - ISE1005D
+      - ISE1008D
+      - ISE5005D-S
+      - ISE5008D
+      - ISE5016D
+  - name: 车载网关
+    slug: vehicle-gateways-1
+    series:
+    - name: 车载网关
+      slug: vehicle-gateways
+      models:
+      - VG710
+      - VG710-H
+      - VG710-M
+      - VG814-Rail
+      - VG814-Road
+    - name: 车载路由器
+      slug: vehicle-routers
+      models:
+      - VR624
+    - name: 车载追踪网关
+      slug: vehicle-telematics
+      models:
+      - VT200
+      - VT310
+  display_names:
+    AI-Vending-Cloud: 智能售货机云平台
+    Eagle-Energy-Manager: 白鹰能源管家
+    InCloud-Manager: 小星云管家
+  solutions:
+  - AI-Vending-Cooler-System
+  - Edge-Intelligence
+  - InCloud
+  - InVision-ADAS
+  - IWOS
+  - On-Device
+  - xEnergy
+  solution_names:
+    AI-Vending-Cooler-System: AI 智能售货柜系统
+    Edge-Intelligence: 边缘智能
+    On-Device: 端侧 AI
+en:
+  categories:
+  - name: Access Points
+    slug: access-points
+    models:
+    - EAP600
+  - name: AI Edge Computers
+    slug: ai-edge-computers
+    models:
+    - EC3320
+    - EC3576-C
+    - EC3588-C
+    - EC4600
+    - EC5350
+    - EC5550
+    - EC942
+    - EC954
+    - Mo-62A
+    - Mo-68A
+  - name: AI Vending Cooler
+    slug: ai-vending-cooler
+    series:
+    - name: AI Smart kit
+      slug: ai-smart-kit
+      models:
+      - Smart-Kit
+    - name: AI Vending Cooler
+      slug: ai-vending-cooler-1
+      models:
+      - FV680
+  - name: Cloud Service
+    slug: cloud-service
+    models:
+    - AI-Vending-Cloud
+    - Device-Manager
+    - DeviceLive
+    - Eagle-Energy-Manager
+    - InCloud-Manager
+    - InConnect
+  - name: Edge Gateway & Edge Computer
+    slug: edge-gateway-edge-computer
+    models:
+    - EC312
+    - IG502
+    - IG902
+    - InBOX710
+    - InBOX712
+    - InBOX732
+    - InPAD070S
+    - InPAD3101
+  - name: LoRaWAN Devices
+    slug: lorawan-devices
+    series:
+    - name: LoRaWAN End Nodes
+      slug: lorawan-end-nodes
+      models:
+      - LT312
+    - name: LoRaWAN Gateways
+      slug: lorawan-gateways
+      models:
+      - EC312-LoRaWAN
+  - name: On-Board Computers
+    slug: on-board-computers
+    models:
+    - MDT600
+  - name: 5G & 4G Routers
+    slug: routers
+    series:
+    - name: Battery-Powered Routers
+      slug: cellular-routers
+      models:
+      - CR202-Lite
+      - CR602
+    - name: Business Routers
+      slug: enterprise-routers
+      models:
+      - CPE02
+      - ER2000
+      - ER615
+      - ER815
+      - FWA12
+    - name: Industrial Routers
+      slug: industrial-routers
+      models:
+      - IR302
+      - IR315
+      - IR602
+      - IR624
+      - IR925
+    - name: Outdoor Routers
+      slug: outdoor-odu
+      models:
+      - ODU12
+      - ODU2002
+      - ODU302
+  - name: Switches
+    slug: switches
+    series:
+    - name: Managed Enterprise Switches
+      slug: managed-enterprise-switches
+      models:
+      - ES620
+    - name: Managed Industrial Ethernet Switches
+      slug: managed-industrial-ethernet-switches
+      models:
+      - ISM5006D
+      - ISM5010D
+      - ISM5012D
+      - ISM5020D
+      - ISM5026U
+      - ISM7012D
+      - ISM7028U
+    - name: PoE Industrial Ethernet Switches
+      slug: poe-industrial-ethernet-switches
+      models:
+      - ISE5306D
+      - ISE5310D
+      - ISM5310D
+      - ISM7312D
+    - name: Unmanaged Enterprise Switches
+      slug: unmanaged-enterprise-switches
+      models:
+      - ES220
+    - name: Unmanaged Industrial Ethernet Switches
+      slug: unmanaged-industrial-ethernet-switches
+      models:
+      - ISE2003D
+      - ISE2005D
+      - ISE2008D
+      - ISE2016D
+      - ISE3018D
+      - ISE5005D
+      - ISE5008D
+      - ISE5010D
+  - name: Vehicle Gateways
+    slug: vehicle-gateways-1
+    series:
+    - name: Vehicle Gateways
+      slug: vehicle-gateways
+      models:
+      - VG710
+      - VG710-H
+      - VG710-M
+      - VG814-Rail
+      - VG814-Road
+    - name: Vehicle Routers
+      slug: vehicle-routers
+      models:
+      - VR624
+    - name: Vehicle Telematics
+      slug: vehicle-telematics
+      models:
+      - VT200
+      - VT310
+      - VT320
+  solutions:
+  - AI-Vending-Cooler-System
+  - Edge-Intelligence
+  - InCloud
+  - InVision-ADAS
+  - IWOS
+  - On-Device
+  - xEnergy

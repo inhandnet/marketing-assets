@@ -1,0 +1,82 @@
+# 素材自动处理（GitHub 是唯一入口）：
+#   - 市场部上传图片 / 宣传册后：规范文件名、压缩图片、生成缩略图 / catalog.json / llms.txt / 画廊
+#   - 视频：为每个型号建 Release（<型号>-zh / <型号>-en），规范视频文件名，生成 videos/*.yml
+#   - 发现放错位置、型号不在官网、文件过大等问题时开 issue 提醒（不阻断上传）
+# 视频上传到 Release 不会可靠地触发事件，所以另外每小时检查一次。
+name: build-assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "zh/**"
+      - "en/**"
+      - "categories.yml"
+      - "scripts/**"
+      - ".claude/skills/**"
+  # 不用 release 事件：它会用标签所在旧提交里的 workflow 运行。网页传到 Release 的视频由每小时检查处理
+  schedule:
+    - cron: "17 * * * *"   # 每小时检查一次 Release 里的新视频
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: build-assets
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 始终基于最新的 main（release 事件默认检出的是标签对应的旧提交）
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pillow pyyaml
+
+      # 同步视频 → 整理素材 → 提交。期间有人推送导致冲突时，取最新 main 重新生成再推，最多 3 次
+      - name: 同步视频、整理素材并提交
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          CN_BASE_URL: ${{ vars.CN_BASE_URL }}   # 可选：日后加国内 CDN 镜像时配置
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for i in 1 2 3; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python scripts/sync_releases.py
+            python scripts/build.py
+            git add -A
+            if ! git diff --cached --quiet -- _generated/report.md; then
+              echo "REPORT_CHANGED=1" >> "$GITHUB_ENV"   # 报告有变化才提醒，避免每小时重复
+            fi
+            if git diff --cached --quiet; then
+              echo "无变化"; break
+            fi
+            git commit -q -m "chore: 自动整理素材并更新清单"
+            if git push -q origin HEAD:main; then break; fi
+            echo "推送冲突，第 $i 次重试"; sleep 5
+          done
+
+      - name: 有问题时开 issue 提醒
+        if: env.REPORT_CHANGED == '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^- `' _generated/report.md; then
+            title="素材自动检查提醒"
+            num=$(gh issue list --state open --search "in:title $title" --json number --jq '.[0].number')
+            if [ -n "$num" ]; then
+              gh issue comment "$num" --body-file _generated/report.md
+            else
+              gh issue create --title "$title" --body-file _generated/report.md
+            fi
+          fi
