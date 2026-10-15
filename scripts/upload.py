@@ -499,12 +499,13 @@ def place(files: list[str], lang: str, model: str | None, solution: str | None, 
         info = index.get(lg, {}).get(model_key(owner))
         if info:
             canonical = info.get("model") or info.get("solution")
+        elif section == "solutions":  # 新方案：直接建文件夹，名字里的空格换成 -
+            canonical = re.sub(r"\s+", "-", owner.strip())
         elif not force:
             other = "en" if lg == "zh" else "zh"
             hint = f"（该{what}只在另一种语言的官网上架）" if model_key(owner) in index.get(other, {}) else ""
             site = "中文" if lg == "zh" else "英文"
-            listname = "产品列表" if section == "products" else "解决方案列表"
-            say(f"✗ {what} {owner} 不在{site}官网{listname}中{hint}。确认无误可加 --force。")
+            say(f"✗ {what} {owner} 不在{site}官网产品列表中{hint}。确认无误可加 --force。")
             return 1
     for f in files:
         for i, lg in enumerate(langs):

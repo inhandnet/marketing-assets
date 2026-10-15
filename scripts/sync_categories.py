@@ -9,7 +9,8 @@
 规则：
 - 中文站、英文站的产品线不同，分别生成 zh / en 两份
 - 芯片厂商这一层（TI、Rockchip 等）不作为系列，型号直接归到品类下
-- 「解决方案」单独列为 solutions（对应 solutions/ 文件夹）；跳过「配件」「未分类」，以及标题带「复制 / copy」的草稿
+- 跳过「解决方案」「配件」「未分类」，以及标题带「复制 / copy」的草稿。解决方案不从官网同步：
+  方案名就是 solutions/ 下的文件夹名（见 build.load_solutions）
 - 型号 ID = 英文站产品标题，空格换成 "-"（如 "Mo 62A" → "Mo-62A"）；中文站同一产品
   （官网产品 ID 相同）沿用英文 ID，中文标题不同时记入 display_names，用于画廊显示
 
@@ -52,25 +53,6 @@ def fetch_all(base: str, endpoint: str, fields: str) -> list[dict]:
 
 def model_id(title: str) -> str:
     return re.sub(r"\s+", "-", html.unescape(title).strip())
-
-
-def build_solutions(base: str, id_map: dict[int, str]) -> tuple[list[str], dict[str, str], dict[int, str]]:
-    """官网「解决方案」下的子分类 → (方案 ID 列表, 中文显示名, 分类ID→方案ID)。
-    方案 ID = 英文站分类名，空格换成 "-"（如 "InVision ADAS" → "InVision-ADAS"）；中文站沿用英文 ID。"""
-    cats = fetch_all(base, "product_cat", "id,name,slug,parent,count")
-    root = next((c for c in cats if c["slug"] == "solutions" and not c["parent"]), None)
-    if not root:
-        return [], {}, {}
-    ids, display = {}, {}
-    for c in cats:
-        if c["parent"] != root["id"] or not c["count"]:
-            continue
-        name = html.unescape(c["name"]).strip()
-        sid = id_map.get(c["id"]) or model_id(name)
-        ids[c["id"]] = sid
-        if CJK.search(name):
-            display[sid] = name
-    return sorted(set(ids.values()), key=str.upper), dict(sorted(display.items())), ids
 
 
 def build_site(base: str, id_map: dict[int, str]) -> tuple[list[dict], dict[str, str], dict[int, str]]:
@@ -146,23 +128,16 @@ def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     en_tree, en_display, en_ids = build_site(SITES["en"], {})
     zh_tree, zh_display, _ = build_site(SITES["zh"], en_ids)
-    en_sol, en_sol_display, en_sol_ids = build_solutions(SITES["en"], {})
-    zh_sol, zh_sol_display, _ = build_solutions(SITES["zh"], en_sol_ids)
     data = {"zh": {"categories": zh_tree}, "en": {"categories": en_tree}}
     if zh_display:
         data["zh"]["display_names"] = zh_display
     if en_display:
         data["en"]["display_names"] = en_display
-    for lang, sol, disp in (("zh", zh_sol, zh_sol_display), ("en", en_sol, en_sol_display)):
-        if sol:
-            data[lang]["solutions"] = sol
-        if disp:
-            data[lang]["solution_names"] = disp
     header = (
         "# 自动生成，请勿手改。来源：官网产品分类接口（scripts/sync_categories.py，每周同步）\n"
         "# zh = www.inhand.com.cn，en = www.inhand.com；两站产品线不同，分别列出\n"
         "# 结构：品类 → 系列 → 型号；没有系列的型号直接列在品类的 models 下；display_names = 中文显示名\n"
-        "# solutions = 官网「解决方案」下的方案（solutions/ 文件夹名）；solution_names = 方案中文名\n\n"
+        "# 解决方案不在这里：方案名就是 zh|en/solutions/ 下的文件夹名\n\n"
     )
     text = header + yaml.safe_dump(data, allow_unicode=True, sort_keys=False, width=120)
     old = OUT.read_text(encoding="utf-8") if OUT.exists() else ""

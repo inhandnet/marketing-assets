@@ -95,7 +95,7 @@ zh/                                  中文素材（en/ 结构完全相同）
 │   ├── images/                      产品图、场景图、海报
 │   ├── brochures/                   宣传册、彩页规格书（PDF）
 │   └── videos/                      视频（上传时自动传到 Release，不进仓库）
-├── solutions/<方案>/                解决方案素材，方案名见 categories.yml 的 solutions
+├── solutions/<方案>/                解决方案素材，方案名就是文件夹名
 │   └── images/  brochures/  videos/ （同上）
 └── brand/                           品牌资料（不分型号）
     ├── logo/                        Logo（可放 AI / EPS / SVG 矢量文件）
@@ -106,8 +106,8 @@ zh/                                  中文素材（en/ 结构完全相同）
 ```
 
 - 没有文字的产品图、Logo 等，中英文各放一份。
-- 型号、方案文件夹名与官网一致即可，大小写、空格、连字符都没关系。
-- 可用的方案名读 `categories.yml` 里对应语言的 `solutions`（中文名在 `solution_names`），每周从官网自动同步。
+- 型号文件夹名与官网一致即可，大小写、空格、连字符都没关系。
+- 方案不设固定列表，也不从官网同步：已有的方案看 `zh/solutions/`、`en/solutions/` 下的文件夹；新方案直接用英文方案名建文件夹（如 `Smart-Factory`），中英文用同一个名字。同一方案写法不同（`iwos` / `IWOS`）时会自动合并到已有的写法。
 - 文件夹名写法不规范（如 `MO62A`、`mo 62a`、`iwos`）没关系，上传时会自动统一成官网写法；同一型号有多个写法的文件夹会自动合并。
 - 文件名随意，程序会自动加上前缀和语言：产品用型号、方案用方案名、品牌资料用 InHand，如 `InHand_logo_ZH.png`。
 

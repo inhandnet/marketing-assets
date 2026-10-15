@@ -16,7 +16,7 @@ zh/                          中文素材（en/ 结构完全相同）
 │   ├── images/               产品图、场景图、海报
 │   ├── brochures/            宣传册、彩页规格书
 │   └── videos/               视频说明（视频本身在 Releases）
-├── solutions/<方案>/         解决方案素材，方案名与官网「解决方案」一致，如 IWOS
+├── solutions/<方案>/         解决方案素材，按方案分文件夹，如 IWOS
 │   └── images/  brochures/  videos/
 └── brand/                    品牌资料
     ├── logo/                 Logo（含 SVG 等矢量文件）
@@ -41,7 +41,7 @@ zh/                          中文素材（en/ 结构完全相同）
 
 - `llms.txt`：按语言列出全部素材、描述和下载链接
 - `catalog.json`：每个素材的型号 / 方案、品类、系列、类型、语言、尺寸、下载链接、描述
-- `categories.yml`：品类 → 系列 → 型号、解决方案列表，每周从中英文官网自动同步
+- `categories.yml`：品类 → 系列 → 型号，每周从中英文官网自动同步
 
 ## 使用说明
 

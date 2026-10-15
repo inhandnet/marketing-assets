@@ -1,7 +1,7 @@
 # 自动生成，请勿手改。来源：官网产品分类接口（scripts/sync_categories.py，每周同步）
 # zh = www.inhand.com.cn，en = www.inhand.com；两站产品线不同，分别列出
 # 结构：品类 → 系列 → 型号；没有系列的型号直接列在品类的 models 下；display_names = 中文显示名
-# solutions = 官网「解决方案」下的方案（solutions/ 文件夹名）；solution_names = 方案中文名
+# 解决方案不在这里：方案名就是 zh|en/solutions/ 下的文件夹名
 
 zh:
   categories:
@@ -148,18 +148,6 @@ zh:
     AI-Vending-Cloud: 智能售货机云平台
     Eagle-Energy-Manager: 白鹰能源管家
     InCloud-Manager: 小星云管家
-  solutions:
-  - AI-Vending-Cooler-System
-  - Edge-Intelligence
-  - InCloud
-  - InVision-ADAS
-  - IWOS
-  - On-Device
-  - xEnergy
-  solution_names:
-    AI-Vending-Cooler-System: AI 智能售货柜系统
-    Edge-Intelligence: 边缘智能
-    On-Device: 端侧 AI
 en:
   categories:
   - name: Access Points
@@ -315,11 +303,3 @@ en:
       - VT200
       - VT310
       - VT320
-  solutions:
-  - AI-Vending-Cooler-System
-  - Edge-Intelligence
-  - InCloud
-  - InVision-ADAS
-  - IWOS
-  - On-Device
-  - xEnergy

@@ -26,7 +26,7 @@ solution materials and brand assets — for sales teams, channel partners, press
 
 - `llms.txt` — index of all assets with descriptions and download links
 - `catalog.json` — full manifest: model / solution, category, series, type, language, size, URL, description
-- `categories.yml` — category → series → model and solution lists, synced weekly from www.inhand.com and www.inhand.com.cn
+- `categories.yml` — category → series → model lists, synced weekly from www.inhand.com and www.inhand.com.cn
 
 Catalog, index and gallery are regenerated automatically on every change.
 

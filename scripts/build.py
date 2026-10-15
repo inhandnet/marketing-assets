@@ -139,20 +139,22 @@ BRAND_PREFIX = "InHand"
 
 
 def load_solutions() -> dict[str, dict[str, dict]]:
-    """语言 → 方案 key → {solution, display_name, category}（方案列表来自官网「解决方案」分类）"""
-    data = yaml.safe_load((ROOT / "categories.yml").read_text(encoding="utf-8"))
-    index: dict[str, dict[str, dict]] = {}
-    for lang, site in data.items():
-        names = site.get("solution_names") or {}
-        index[lang] = {
-            model_key(sid): {
-                "solution": sid,
-                "display_name": names.get(sid, sid.replace("-", " ")),
-                "category": SECTION_LABEL["solutions"][lang],
-            }
-            for sid in site.get("solutions", [])
-        }
-    return index
+    """语言 → 方案 key → {solution, display_name, category}。
+    方案不设固定列表，就是 zh|en/solutions/ 下已有的文件夹名。同一方案有多种写法（iwos / IWOS）时，
+    以中英文合计文件最多的写法为准（并列取排序靠前的），其他写法由 canonicalize_folders 合并过去。"""
+    counts: dict[str, dict[str, int]] = {}  # 方案 key → {写法: 文件数}
+    for lang in LANGS:
+        base = ROOT / lang / "solutions"
+        for d in sorted(p for p in base.iterdir() if p.is_dir()) if base.is_dir() else []:
+            name = re.sub(r"\s+", "-", d.name.strip())
+            n = sum(1 for f in d.rglob("*") if f.is_file() and not f.name.startswith("."))
+            by_name = counts.setdefault(model_key(name), {})
+            by_name[name] = by_name.get(name, 0) + n
+    best = {k: min(v.items(), key=lambda kv: (-kv[1], kv[0]))[0] for k, v in counts.items()}
+    # 中英文共用同一种写法
+    return {lang: {k: {"solution": sid, "display_name": sid.replace("-", " "),
+                       "category": SECTION_LABEL["solutions"][lang]} for k, sid in best.items()}
+            for lang in LANGS}
 
 
 def locate(rel: str) -> dict:
@@ -325,7 +327,7 @@ def url(base: str, rel: str) -> str:
 
 
 def canonicalize_folders(dry_run: bool, categories: dict, solutions: dict) -> tuple[list[str], list[str]]:
-    """型号 / 方案文件夹名统一成官网写法（MO62A、mo 62a → Mo-62A；iwos → IWOS）。
+    """型号文件夹名统一成官网写法（MO62A、mo 62a → Mo-62A）；方案文件夹统一成已有的主要写法（iwos → IWOS）。
     同一型号出现多个写法的文件夹时合并到一起，避免重复文件夹和多个 Release。不认识的名字至少去掉空格。"""
     changes, warnings = [], []
     planned: set[str] = set()  # 预览时记录已计划的目标文件夹，后面同目标的显示为"合并"
@@ -405,8 +407,6 @@ def collect(dry_run: bool, categories: dict, compress: bool = False) -> tuple[li
             site = "中文官网 inhand.com.cn" if lang == "zh" else "英文官网 inhand.com"
             if model and model_key(model) not in categories.get(lang, {}):
                 warnings.append(f"`{rel}`：型号 `{model}` 不在{site}的产品列表中，请检查拼写或是否放错语言")
-            if solution and model_key(solution) not in solutions.get(lang, {}):
-                warnings.append(f"`{rel}`：方案 `{solution}` 不在{site}的解决方案列表中，请确认方案名称")
             if model or solution:  # 文件名前缀用官网写法（预览时文件夹可能还没统一）
                 info = (categories if model else solutions).get(lang, {}).get(model_key(prefix))
                 prefix = (info.get("model") or info.get("solution")) if info else re.sub(r"\s+", "-", prefix.strip())
