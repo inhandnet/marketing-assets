@@ -10,6 +10,7 @@
 | `sync_releases.py` | 为每个型号 / 方案文件夹和品牌资料建 Release，视频附件名改为纯英文规范名（中文原名存为附件显示名），生成 / 清理 `videos/*.yml` | CI，上传工具 |
 | `sync_categories.py` | 从中英文官网 WordPress 接口生成 `categories.yml`（品类、系列、型号、解决方案；芯片厂商层级不作为系列） | CI（每周一） |
 | `sync_cn.py` | 单向同步到国内镜像（AWS 中国区桶 `inhandwww-resources` + CloudFront `E3NBEQNO59BHGE`，域名 `media-hub.inhand.com.cn`）：素材、缩略图、国内版画廊、三个清单文件按仓库路径存放；视频从 Release 下载后按中文原名（`videos/*.yml` 的 title）存放。只传有变化的文件，GitHub 上删除的国内也删（只限 `zh/`、`en/`、`_generated/` 和清单文件），只刷新变化的 CDN 路径 | CI（每次整理后） |
+| `setup.ps1` | 新电脑一键安装：用 winget 装 Git / GitHub CLI / Python，装 Claude Code，浏览器登录 GitHub，拉取仓库，装依赖，用 GitHub noreply 邮箱设置本仓库提交署名，桌面建快捷方式，最后运行 `upload.py doctor`。可重复运行。用法：`irm https://raw.githubusercontent.com/inhandnet/marketing-assets/main/scripts/setup.ps1 \| iex`。文件不能带 BOM | 市场部同事（每台电脑一次） |
 | `upload.py` | 本地上传工具：`doctor` / `check` / `push [--compress | --compress-all]` / `place`。两个 Claude Code skill 都调用它 | 市场部（经 Claude Code） |
 
 本地运行：`pip install pillow pyyaml`，然后 `python scripts/build.py --dry-run` 预览。
