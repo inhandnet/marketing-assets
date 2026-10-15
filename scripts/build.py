@@ -50,7 +50,7 @@ MAX_EDGE = 2000          # 网页尺寸图片长边上限（px）
 THUMB_EDGE = 480         # 缩略图长边（px）
 MAX_BYTES = 20 * 1024 * 1024  # 超过则提醒
 
-# 下载地址前缀。CN_BASE_URL 为可选的国内 CDN 镜像地址，暂未启用
+# 下载地址前缀。CN_BASE_URL 为国内镜像地址（GitHub 仓库变量），设置后 catalog 写入 url_cn 和 cn_base_url
 GLOBAL_BASE = os.environ.get(
     "GLOBAL_BASE_URL", "https://raw.githubusercontent.com/inhandnet/marketing-assets/main"
 )
@@ -297,6 +297,29 @@ def make_thumb(src: Path, dst: Path) -> None:
         im.save(dst, "WEBP", quality=80)
 
 
+CN_TITLE_BAD = re.compile(r'[\\/:*?"<>|\x00-\x1f]')
+
+
+def cn_video_keys(videos_dir: Path) -> dict[str, str]:
+    """一个 videos/ 文件夹里每个视频说明文件 → 国内镜像中的对象路径（中文原名）。
+    文件名取说明文件的 title（即上传时的中文原名），去掉路径和 Windows 不允许的字符；
+    同一文件夹里标题重复时，后面的加上附件编号区分。没有下载链接的说明文件跳过。"""
+    out: dict[str, str] = {}
+    used: set[str] = set()
+    for yml in sorted(videos_dir.glob("*.yml"), key=lambda p: p.name):
+        meta = yaml.safe_load(yml.read_text(encoding="utf-8")) or {}
+        if not meta.get("download_global"):
+            continue
+        ext = Path(meta.get("file") or "x.mp4").suffix.lower() or ".mp4"
+        title = re.sub(r"\s+", " ", CN_TITLE_BAD.sub("-", str(meta.get("title") or yml.stem))).strip(" .") or yml.stem
+        name = title + ext
+        if name.lower() in used:  # 标题重复
+            name = f"{title}（{Path(meta.get('file') or yml.stem).stem}）{ext}"
+        used.add(name.lower())
+        out[yml.name] = (videos_dir / name).relative_to(ROOT).as_posix()
+    return out
+
+
 def url(base: str, rel: str) -> str:
     return f"{base}/{quote(rel)}" if base else ""
 
@@ -464,6 +487,11 @@ def collect(dry_run: bool, categories: dict, compress: bool = False) -> tuple[li
                 meta = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
                 asset["format"] = "video"
                 asset["video"] = meta
+                # 国内镜像里视频按中文原名存放（GitHub Release 附件名不能用中文）
+                key = cn_video_keys(path.parent).get(path.name)
+                if key:
+                    asset["cn_key"] = key
+                    asset["url_cn"] = url(CN_BASE, key)
 
             # 4) 描述（同目录 descriptions.yml：文件名 → 一句话描述；上传时由 Claude 看图生成，可人工修改）
             descs = read_descs(path.parent)
@@ -509,8 +537,10 @@ def write_llms(assets: list[dict], categories: dict) -> None:
     write_lf(ROOT / "llms.txt", "\n".join(lines))
 
 
-def write_gallery(assets: list[dict], categories: dict) -> None:
-    """极简静态画廊：_generated/gallery/{zh,en}.html，可直接本地打开。"""
+def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> None:
+    """极简静态画廊：_generated/gallery/{zh,en}.html，可直接本地打开。
+    cn=True 时生成国内镜像版 {zh,en}.cn.html：视频链接指向国内存储里的中文原名文件
+    （同步到国内时改名为 zh.html / en.html，所以页面内的相对链接不变）。"""
     out_dir = GEN / "gallery"
     out_dir.mkdir(parents=True, exist_ok=True)
     text = {
@@ -533,7 +563,10 @@ def write_gallery(assets: list[dict], categories: dict) -> None:
                 body.append(f"<h3>{html.escape(key)}</h3><div class='grid'>")
                 for a in groups[cat][key]:
                     name = a.get("video", {}).get("title") or Path(a["path"]).name
-                    href = a.get("video", {}).get("download_global") or "../../" + quote(a["path"])
+                    if cn and a.get("cn_key"):
+                        href = "../../" + quote(a["cn_key"])
+                    else:
+                        href = a.get("video", {}).get("download_global") or "../../" + quote(a["path"])
                     thumb = (
                         f"<img src='../../{quote(a['thumb'])}' alt='{html.escape(a.get('description') or name)}'>"
                         if a.get("thumb")
@@ -556,7 +589,7 @@ img,.ph{{width:100%;height:160px;object-fit:contain;background:#f5f5f5;border-ra
 figcaption{{font-size:13px;margin-top:6px;word-break:break-all}}</style>
 <h1>{title} <small><a href="{other_lang}.html">{switch}</a></small></h1>
 {''.join(body)}</html>"""
-        write_lf(out_dir / f"{lang}.html", page)
+        write_lf(out_dir / f"{lang}{'.cn' if cn else ''}.html", page)
 
 
 AGENT_SKILL_TEMPLATE = """---
@@ -617,10 +650,11 @@ def main() -> int:
         for t in (GEN / "thumbs").rglob("*") if (GEN / "thumbs").exists() else []:
             if t.is_file() and t not in keep:
                 t.unlink()
-        catalog = {"schema_version": 1, "assets": assets}
+        catalog = {"schema_version": 1, **({"cn_base_url": CN_BASE} if CN_BASE else {}), "assets": assets}
         write_lf(ROOT / "catalog.json", json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
         write_llms(assets, categories)
         write_gallery(assets, categories)
+        write_gallery(assets, categories, cn=True)
 
     report = ["# 素材自动检查报告", ""]
     report += ["## 自动整理", ""] + ([f"- {c}" for c in changes] or ["- 无"]) + [""]

@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import base64
+import json
 import os
 import re
 import shutil
@@ -32,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build import (  # noqa: E402
     BLOCKED_EXT, IMAGE_EXT, LANGS, MAX_BYTES, MAX_EDGE, ROOT, compress_image, compressed_ext, load_categories,
     model_key, video_stem, locate, release_tag, release_title, load_solutions, BRAND_TYPES, LOGO_VECTOR_EXT,
-    canonicalize_folders, collect, has_alpha, read_descs, rename_desc, write_descs,
+    canonicalize_folders, cn_video_keys, collect, has_alpha, read_descs, rename_desc, write_descs,
 )
 import build  # noqa: E402  （读取 build.missing_desc）
 import yaml  # noqa: E402
@@ -132,9 +133,18 @@ def git_net(args: list[str], check: bool = False) -> subprocess.CompletedProcess
     return res
 
 
+def cn_base() -> str:
+    """国内镜像地址：启用后（GitHub 仓库变量 CN_BASE_URL）由自动整理写进 catalog.json"""
+    try:
+        return json.loads((ROOT / "catalog.json").read_text(encoding="utf-8")).get("cn_base_url", "")
+    except (OSError, ValueError):
+        return ""
+
+
 def access_links(repo: str, staged: list[str]) -> list[str]:
-    """本次上传的素材 → 查看页面和下载链接；视频给 Release 页面和视频下载链接"""
+    """本次上传的素材 → 查看页面和下载链接；视频给 Release 页面和视频下载链接；国内镜像启用后加国内下载"""
     base = f"https://github.com/{repo}"
+    cn = cn_base()
     out = []
     for rel in staged:
         p = ROOT / rel
@@ -146,11 +156,14 @@ def access_links(repo: str, staged: list[str]) -> list[str]:
             if not dl:
                 continue
             tag = dl.split("/releases/download/", 1)[-1].split("/", 1)[0]
-            out.append(f"  · 视频「{meta.get('title') or p.stem}」\n"
-                       f"      查看：{base}/releases/tag/{tag}\n      下载：{dl}")
+            line = (f"  · 视频「{meta.get('title') or p.stem}」\n"
+                    f"      查看：{base}/releases/tag/{tag}\n      下载：{dl}")
+            key = cn_video_keys(p.parent).get(p.name) if cn else None
+            out.append(line + (f"\n      国内下载：{cn}/{quote(key)}" if key else ""))
             continue
         q = quote(rel)
-        out.append(f"  · {p.name}\n      查看：{base}/blob/main/{q}\n      下载：{base}/raw/main/{q}")
+        out.append(f"  · {p.name}\n      查看：{base}/blob/main/{q}\n      下载：{base}/raw/main/{q}"
+                   + (f"\n      国内下载：{cn}/{q}" if cn else ""))
     return out
 
 
@@ -413,7 +426,8 @@ def push(message: str | None, compress: str | None = None) -> int:
     say(f"  · 仓库：https://github.com/{repo}")
     links = access_links(repo, staged)
     if links:
-        say("\n访问地址（「查看」是 GitHub 页面，可预览和下载；「下载」是直接下载链接，可以发给别人）：")
+        say("\n访问地址（「查看」是 GitHub 页面，可预览和下载；「下载」是直接下载链接，可以发给别人"
+            + ("；「国内下载」是国内镜像，几分钟后可用，发给国内同事和客户更快）：" if cn_base() else "）："))
         say("\n".join(links))
         vis = run(["gh", "repo", "view", "--json", "visibility", "--jq", ".visibility"], check=False)
         if vis.upper() != "PUBLIC":
