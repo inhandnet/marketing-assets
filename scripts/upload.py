@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build import (  # noqa: E402
     BLOCKED_EXT, IMAGE_EXT, LANGS, MAX_BYTES, MAX_EDGE, ROOT, compress_image, compressed_ext, load_categories,
     model_key, video_stem, locate, release_tag, release_title, load_solutions, BRAND_TYPES, LOGO_VECTOR_EXT,
-    canonicalize_folders, cn_video_keys, collect, has_alpha, read_descs, rename_desc, write_descs,
+    canonicalize_folders, cn_video_keys, collect, DESC_FILE, has_alpha, read_descs, rename_desc, write_descs,
 )
 import build  # noqa: E402  （读取 build.missing_desc）
 import yaml  # noqa: E402
@@ -214,13 +214,9 @@ def doctor(quiet: bool = False) -> bool:
 
 def pending() -> dict[str, list[Path]]:
     """返回 {'files': 图片/宣传册等（git 未提交的）, 'videos': 本地视频, 'blocked': 不该放的}"""
-    out = run(["git", "-c", "core.quotepath=false", "status", "--porcelain", "--untracked-files=all", "--", *LANGS])
     files, blocked, descs_changed = [], [], []
-    for line in out.splitlines():
-        status, path = line[:2], line[3:].strip().strip('"')
-        if " -> " in path:  # 改名：取新路径
-            path = path.split(" -> ", 1)[1].strip('"')
-        p = ROOT / path
+    for e in status_z("--untracked-files=all"):
+        status, p = e[:2], ROOT / e[3:]
         if "D" in status or not p.exists() or p.name.startswith("."):
             continue
         if p.name == "descriptions.yml":  # 描述改动单独统计，不算素材
@@ -283,6 +279,10 @@ def check(compress: str | None = None) -> int:
             say(f"  · 视频 {p.relative_to(ROOT).as_posix()}（{mb(size)}）→ 将上传到 Release「{t[1]}」，文件名 {t[2]}")
     for p in items["blocked"]:
         problems.append(f"{p.relative_to(ROOT).as_posix()}：{BLOCKED_EXT[p.suffix.lower()]}不上传，请移走")
+    for rel, what in replacements([]) if compress != "all" else []:
+        say(f"  ! 会{what}仓库里已有的素材：{rel}（上传前要问用户）")
+    for rel in pending_conflicts():
+        say(f"  ! 有未处理的冲突：{rel}（用 resolve 处理，先问用户）")
     if inbox:
         say(f"\n  「待上传」文件夹里还有 {len(inbox)} 个文件没归类（需要先用「整理素材」归类，或手动放进型号文件夹）。")
 
@@ -322,7 +322,244 @@ def check(compress: str | None = None) -> int:
 
 # ---------- 上传 ----------
 
-def push(message: str | None, compress: str | None = None) -> int:
+# ---------- 多人同时上传：冲突与替换都要用户决定，不自动处理 ----------
+
+HOLD = ROOT / ".冲突暂存"   # 与 GitHub 上新改动冲突的本地版本先放这里（不进 Git），等用户决定
+DELETED_MARK = ".已删除"    # 本地删除了、但别人刚改过的文件：暂存区里只放一个标记
+BASE_SUFFIX = ".base"       # descriptions.yml 冲突时同时保存双方共同的旧版本，用于「两边都保留」
+
+
+def changed_paths(a: str, b: str) -> set[str]:
+    out = run(["git", "diff", "--name-only", "-z", "--no-renames", a, b, "--", *LANGS])
+    return {p for p in out.split("\0") if p}
+
+
+def status_z(*extra: str) -> list[str]:
+    """git status -z 的条目（"XY path"）。不能用 run()：它会去掉开头的空格，把状态码 " M" 弄乱"""
+    out = subprocess.run(["git", "status", "--porcelain=v1", "-z", "--no-renames", *extra, "--", *LANGS],
+                         cwd=ROOT, capture_output=True, text=True, encoding="utf-8", errors="replace").stdout
+    return [e for e in out.split("\0") if len(e) > 3]
+
+
+def local_changes() -> set[str]:
+    """zh/ en/ 下尚未提交的改动（新文件、修改、删除）"""
+    return {e[3:] for e in status_z("--untracked-files=all")}
+
+
+def is_auto(rel: str) -> bool:
+    """程序生成的视频说明文件：冲突时以 GitHub 上的为准，下次同步会重新生成"""
+    return rel.endswith(".yml") and "/videos/" in rel
+
+
+def tracked_at(ref: str, rel: str) -> bool:
+    return subprocess.run(["git", "cat-file", "-e", f"{ref}:{rel}"], cwd=ROOT, capture_output=True).returncode == 0
+
+
+def restore(ref: str, rel: str) -> None:
+    """把文件恢复成 ref 中的样子（ref 中没有就删掉）"""
+    if tracked_at(ref, rel):
+        run(["git", "checkout", ref, "--", rel])
+    elif (ROOT / rel).exists():
+        (ROOT / rel).unlink()
+
+
+def set_aside_conflicts() -> list[str]:
+    """拉取前检查：本地改动（含上次没推送成功的提交）与 GitHub 上别人的新改动是否碰到同一个文件。
+    碰到的文件把本地版本移到 .冲突暂存/，文件先恢复原样，这样拉取不会冲突；之后由用户逐个决定。"""
+    git_net(["fetch", "-q", "origin", "main"], check=True)
+    base = run(["git", "merge-base", "HEAD", "origin/main"])
+    upstream = changed_paths(base, "origin/main")
+    mine = local_changes() | changed_paths(base, "HEAD")
+    hits = sorted(p for p in mine & upstream if not is_auto(p))
+    autos = sorted(p for p in mine & upstream if is_auto(p))
+    if not hits and not autos:
+        return []
+    if run(["git", "rev-parse", "HEAD"]) != base:  # 有没推送成功的本地提交：退回成未提交的改动再处理
+        run(["git", "reset", "-q", "--mixed", base])
+    for rel in autos:
+        restore("HEAD", rel)
+    for rel in hits:
+        src, dst = ROOT / rel, HOLD / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        for old in (dst, dst.with_name(dst.name + DELETED_MARK), dst.with_name(dst.name + BASE_SUFFIX)):
+            if old.exists():
+                old.unlink()
+        if src.exists():
+            shutil.move(str(src), dst)
+            if src.name == DESC_FILE and tracked_at("HEAD", rel):
+                dst.with_name(dst.name + BASE_SUFFIX).write_bytes(
+                    subprocess.run(["git", "show", f"HEAD:{rel}"], cwd=ROOT, capture_output=True).stdout)
+        else:
+            dst.with_name(dst.name + DELETED_MARK).touch()
+        restore("HEAD", rel)
+    return hits
+
+
+def held(rel: str) -> Path | None:
+    for p in (HOLD / rel, HOLD / (rel + DELETED_MARK)):
+        if p.exists():
+            return p
+    return None
+
+
+def report_conflicts(hits: list[str]) -> None:
+    say("\n✗ 有人刚刚也改了下面这些文件，和你本次的改动撞上了。为避免互相覆盖，已暂停上传，没有改动 GitHub 上的任何内容。")
+    say("  你的版本已暂存到 .冲突暂存/，GitHub 上的版本已拉到本地。请逐个决定怎么处理：\n")
+    for rel in sorted(hits, key=lambda r: (Path(r).name == DESC_FILE, r)):  # 描述文件放最后：先定素材怎么处理
+        who = run(["git", "log", "-1", "--date=format:%m-%d %H:%M", "--format=%an，%ad（%s）", "HEAD", "--", rel],
+                  check=False)
+        h = held(rel)
+        mine = "你删除了它" if h and h.name.endswith(DELETED_MARK) else "你也改了 / 新加了同名文件"
+        say(f"  · {rel}\n      GitHub 上：{who or '已被删除'}\n      本地：{mine}")
+        if Path(rel).name == DESC_FILE and h and not h.name.endswith(DELETED_MARK):
+            base_p = h.with_name(h.name + BASE_SUFFIX)
+            base_d = yaml.safe_load(base_p.read_text(encoding="utf-8")) if base_p.exists() else {}
+            mine_d = yaml.safe_load(h.read_text(encoding="utf-8")) or {}
+            theirs_d = yaml.safe_load((ROOT / rel).read_text(encoding="utf-8")) if (ROOT / rel).exists() else {}
+            for k in sorted(set(mine_d) | set(theirs_d)):
+                a, b, o = mine_d.get(k), (theirs_d or {}).get(k), (base_d or {}).get(k)
+                if a != o and b != o and a != b:
+                    say(f"      「{k}」两边描述不同：\n        你的：{a}\n        GitHub 上：{b}")
+    say("\n  处理方法（每个文件选一种，问过用户再执行；先处理素材文件，最后处理 descriptions.yml）：")
+    say("    python scripts/upload.py resolve <文件> --use theirs        保留 GitHub 上的，放弃你的改动")
+    say("    python scripts/upload.py resolve <文件> --use mine          用你的版本替换 GitHub 上的")
+    say("    python scripts/upload.py resolve <文件> --use both [--name 新文件名]   两份都保留，你的另存为新名字（素材文件）")
+    say("    python scripts/upload.py resolve <文件> --use merge         两边的描述都保留，同一素材两边都写了时用你的（descriptions.yml）")
+    say("  全部处理完后重新上传。")
+
+
+def resolve(rel: str, use: str, name: str | None) -> int:
+    rel = Path(rel).as_posix()
+    h = held(rel)
+    if not h:
+        say(f"✗ {rel} 没有待处理的冲突")
+        return 1
+    dst = ROOT / rel
+    is_desc = Path(rel).name == DESC_FILE
+    deleted = h.name.endswith(DELETED_MARK)
+    if use == "merge" and (not is_desc or deleted):
+        say("✗ --use merge 只用于 descriptions.yml")
+        return 1
+    if use == "both" and (is_desc or deleted):
+        say("✗ --use both 只用于素材文件；descriptions.yml 请用 merge / mine / theirs")
+        return 1
+    if use == "theirs":
+        keep = HOLD / "已放弃" / rel  # 放弃的版本留底，确认不需要后可删除
+        keep.parent.mkdir(parents=True, exist_ok=True)
+        if not deleted:
+            shutil.move(str(h), keep)
+        say(f"✓ {rel}：保留 GitHub 上的版本" + ("" if deleted else f"，你的版本留底在 {keep.relative_to(ROOT).as_posix()}"))
+    elif use == "mine":
+        if deleted:
+            dst.unlink(missing_ok=True)
+        else:
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(h, dst)
+        say(f"✓ {rel}：用你的版本" + ("（删除）" if deleted else "替换") + f"。上传时加 --replace \"{rel}\"")
+    elif use == "both":
+        if name:
+            new = dst.with_name(name if Path(name).suffix else name + dst.suffix)
+        else:
+            i = 2
+            while (new := dst.with_name(f"{dst.stem}_{i}{dst.suffix}")).exists():
+                i += 1
+        if new.exists():
+            say(f"✗ {new.relative_to(ROOT).as_posix()} 已存在，请换一个名字")
+            return 1
+        shutil.copyfile(h, new)
+        # 你写的描述也跟到新名字上（同一文件夹的描述文件也在冲突暂存里时）
+        held_desc = h.parent / DESC_FILE
+        moved = False
+        if held_desc.exists():
+            d = yaml.safe_load(held_desc.read_text(encoding="utf-8")) or {}
+            if dst.name in d:
+                d[new.name] = d.pop(dst.name)
+                write_descs(held_desc.parent, d)
+                moved = True
+        say(f"✓ {rel}：GitHub 上的保留，你的另存为 {new.relative_to(ROOT).as_posix()}"
+            + ("，你写的描述也跟过去了" if moved else "（记得给它补描述）"))
+    else:  # merge：三方合并，只把你改过的条目写进 GitHub 上的版本
+        base_p = h.with_name(h.name + BASE_SUFFIX)
+        base_d = (yaml.safe_load(base_p.read_text(encoding="utf-8")) if base_p.exists() else {}) or {}
+        mine_d = yaml.safe_load(h.read_text(encoding="utf-8")) or {}
+        merged = read_descs(dst.parent) if dst.exists() else {}
+        for k, v in mine_d.items():
+            if base_d.get(k) != v:
+                merged[k] = v
+        for k in set(base_d) - set(mine_d):
+            merged.pop(k, None)
+        write_descs(dst.parent, merged)
+        say(f"✓ {rel}：两边的描述都已保留")
+    for p in (h, h.with_name(h.name + BASE_SUFFIX)):
+        if p.exists():
+            p.unlink()
+    for d in sorted((p for p in HOLD.rglob("*") if p.is_dir()), reverse=True):  # 清掉空文件夹
+        if not any(d.iterdir()):
+            d.rmdir()
+    left = [p for p in HOLD.rglob("*") if p.is_file() and "已放弃" not in p.relative_to(HOLD).parts
+            and not p.name.endswith(BASE_SUFFIX)] if HOLD.exists() else []
+    say(f"  还有 {len(left)} 个冲突待处理" if left else "  冲突已全部处理，可以重新上传")
+    return 0
+
+
+def pending_conflicts() -> list[str]:
+    if not HOLD.exists():
+        return []
+    out = []
+    for p in HOLD.rglob("*"):
+        rel = p.relative_to(HOLD)
+        if p.is_file() and rel.parts[0] != "已放弃" and not p.name.endswith(BASE_SUFFIX):
+            out.append(rel.as_posix().removesuffix(DELETED_MARK))
+    return sorted(out)
+
+
+def replacements(confirmed: list[str]) -> list[tuple[str, str]]:
+    """本次会替换或删除的、仓库里已有的素材（描述文件、视频说明除外）。未经用户确认的不能上传"""
+    ok = {Path(c).as_posix() for c in confirmed}
+    res = []
+    for e in status_z():
+        if e.startswith("??"):
+            continue
+        rel = e[3:]
+        if Path(rel).name == DESC_FILE or is_auto(rel) or rel in ok:
+            continue
+        res.append((rel, "删除" if "D" in e[:2] else "替换"))
+    return res
+
+
+def keep_both(rel: str, name: str | None, discard: bool) -> int:
+    """本地改了 / 删了仓库里已有的素材，但用户不想替换：本地这份另存为新名字（或留底放弃），已有文件恢复原样"""
+    rel = Path(rel).as_posix()
+    if not tracked_at("HEAD", rel):
+        say(f"✗ {rel} 不是仓库里已有的文件")
+        return 1
+    src = ROOT / rel
+    if discard or not src.exists():
+        note = ""
+        if src.exists():
+            keep = HOLD / "已放弃" / rel
+            keep.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, keep)
+            note = f"，本地那份留底在 {keep.relative_to(ROOT).as_posix()}"
+        restore("HEAD", rel)
+        say(f"✓ {rel} 已恢复原样{note}")
+        return 0
+    if name:
+        new = src.with_name(name if Path(name).suffix else name + src.suffix)
+    else:
+        i = 2
+        while (new := src.with_name(f"{src.stem}_{i}{src.suffix}")).exists():
+            i += 1
+    if new.exists():
+        say(f"✗ {new.relative_to(ROOT).as_posix()} 已存在，请换一个名字")
+        return 1
+    shutil.copyfile(src, new)
+    restore("HEAD", rel)
+    say(f"✓ 已有的 {rel} 保持不变，你的版本另存为 {new.relative_to(ROOT).as_posix()}（记得给它补描述）")
+    return 0
+
+
+def push(message: str | None, compress: str | None = None, replace: list[str] | None = None) -> int:
     say(f"上传模式：{MODE_TEXT[compress]}\n")
     say("━━ 第 1 步：检查环境 ━━")
     if not doctor(quiet=True):
@@ -338,8 +575,39 @@ def push(message: str | None, compress: str | None = None) -> int:
         if "source: release" in p.read_text(encoding="utf-8"):
             p.unlink()
     run(["git", "checkout", "--", *GENERATED], check=False)
+    left = pending_conflicts()
+    if left:
+        say("✗ 上次的冲突还没处理完：")
+        say("\n".join(f"  · {r}" for r in left))
+        say("  请先用 python scripts/upload.py resolve 逐个处理（问过用户再决定）。")
+        return 3
+    hits = set_aside_conflicts()
     git_net(["pull", "--rebase", "--autostash", "origin", "main"], check=True)
+    if hits:
+        report_conflicts(hits)
+        return 3
     say("  ✓ 已是最新")
+    # 会替换 / 删除仓库里已有素材的改动，必须先经用户确认（--replace 列出确认过的文件）
+    if compress != "all":
+        todo = replacements(replace or [])
+        if todo:
+            say("\n✗ 本次改动会影响仓库里已有的素材，需要先问用户：")
+            for rel, what in todo:
+                say(f"  · {what}：{rel}")
+            say("  用户确认要替换 / 删除：重新上传时加 --replace \"<文件>\"（每个确认过的文件都要列出）")
+            say("  用户想两份都保留：python scripts/upload.py keep-both \"<文件>\" [--name 新文件名]")
+            say("  用户不想改动这个文件：python scripts/upload.py keep-both \"<文件>\" --discard（本地这份留底到 .冲突暂存/已放弃/）")
+            return 4
+        # 新文件整理后的规范名和仓库里已有的文件重名：同样先问用户
+        _, warns = build_report(run([sys.executable, "scripts/build.py", "--dry-run"], check=False))
+        clash = [w for w in warns if "整理后的文件名" in w and "已存在" in w]
+        if clash:
+            say("\n✗ 新文件整理后会和仓库里已有的文件重名，需要先问用户：")
+            say("\n".join(f"  {w}" for w in clash))
+            say("  · 两份都保留：把新文件改个名字（直接重命名本地文件，内容不同的名字即可）")
+            say("  · 用新文件替换已有的：把新文件重命名成已有的那个名字（覆盖它），重新上传时加 --replace \"<已有文件>\"")
+            say("  · 不上传这个新文件：把它移回「待上传」文件夹")
+            return 4
     # 先把型号 / 方案文件夹名统一成官网写法，视频的 Release 标签才会正确
     renamed, _ = canonicalize_folders(False, load_categories(), load_solutions())
     for c in renamed:
@@ -351,7 +619,9 @@ def push(message: str | None, compress: str | None = None) -> int:
         for p in items["blocked"]:
             say(f"  · {p.relative_to(ROOT).as_posix()}（{BLOCKED_EXT[p.suffix.lower()]}）")
         return 1
-    if not items["files"] and not items["videos"] and not items["descs"] and compress != "all":
+    # 上次推送失败留下的本地提交也要推上去
+    ahead = int(run(["git", "rev-list", "--count", "origin/main..HEAD"], check=False) or 0)
+    if not items["files"] and not items["videos"] and not items["descs"] and compress != "all"             and not replace and not ahead:  # 只有确认过的删除也要提交
         say("\n没有需要上传的新素材。")
         return 0
 
@@ -402,7 +672,7 @@ def push(message: str | None, compress: str | None = None) -> int:
     say("\n━━ 第 5 步：提交并推送到 GitHub ━━")
     run(["git", "add", "-A", "--", *LANGS])
     staged = run(["git", "-c", "core.quotepath=false", "diff", "--cached", "--name-only", "--", *LANGS]).splitlines()
-    if not staged and not uploaded_videos:
+    if not staged and not uploaded_videos and not ahead:
         say("  没有需要提交的变化。")
         return 0
     # 提交说明用英文（GitHub 页面上更通用），如 "Upload assets: IR315, IWOS (3 files, 1 video) by jiajy"
@@ -414,15 +684,21 @@ def push(message: str | None, compress: str | None = None) -> int:
         f", {len(uploaded_videos)} video{'s' * (len(uploaded_videos) != 1)}" if uploaded_videos else "")
     head = "Compress images" if compress == "all" else "Upload assets"
     msg = message or (f"{head}: {scope} ({counts})" if scope else f"{head} ({counts})")
-    run(["git", "commit", "-m", f"{msg} by {user}"])
-    for attempt in (1, 2):
+    if staged:  # 只剩上次没推送成功的提交时，不用再提交
+        run(["git", "commit", "-m", f"{msg} by {user}"])
+    for attempt in (1, 2, 3):
         res = git_net(["push", "origin", "main"])
         if res.returncode == 0:
             break
-        if attempt == 1:  # 期间别人或自动程序有提交：先合并（同一文件以本次上传为准）再推
-            git_net(["pull", "--rebase", "-X", "theirs", "origin", "main"], check=True)
-        else:
+        if attempt == 3:
             raise SystemExit(f"✗ 推送失败：{res.stderr.strip()}\n请检查网络后重新运行上传。")
+        # 期间别人或自动程序有提交：碰到同一个文件就停下来问用户；没碰到才合并后再推
+        hits = set_aside_conflicts()
+        git_net(["pull", "--rebase", "--autostash", "origin", "main"], check=True)
+        if hits:
+            report_conflicts(hits)
+            say("  （视频如已上传到 Release，不受影响；处理完冲突重新上传即可）")
+            return 3
     say("  ✓ 已推送")
 
     say("\n━━ 完成 ━━")
@@ -575,11 +851,21 @@ def main() -> int:
                        help="整体压缩仓库里所有图片")
         if name == "push":
             p.add_argument("-m", "--message")
+            p.add_argument("--replace", nargs="+", default=[], metavar="文件",
+                           help="用户确认过可以替换 / 删除的已有素材")
     p = sub.add_parser("describe-missing", help="列出没有描述的素材")
     p.add_argument("--all", action="store_true", help="列出仓库里全部没有描述的素材（默认只列待上传的）")
     p = sub.add_parser("describe", help="写入一条素材描述")
     p.add_argument("file")
     p.add_argument("text")
+    p = sub.add_parser("resolve", help="处理与别人同时修改的冲突文件（先问用户）")
+    p.add_argument("file")
+    p.add_argument("--use", choices=["theirs", "mine", "both", "merge"], required=True)
+    p.add_argument("--name", help="--use both 时你这份的新文件名")
+    p = sub.add_parser("keep-both", help="不替换已有素材：本地这份另存为新名字，或 --discard 放弃")
+    p.add_argument("file")
+    p.add_argument("--name")
+    p.add_argument("--discard", action="store_true")
     p = sub.add_parser("place")
     p.add_argument("files", nargs="+")
     p.add_argument("--lang", choices=[*LANGS, "both"], required=True, help="both = 中英文各放一份")
@@ -599,7 +885,11 @@ def main() -> int:
     if a.cmd == "check":
         return check(a.compress)
     if a.cmd == "push":
-        return push(a.message, a.compress)
+        return push(a.message, a.compress, a.replace)
+    if a.cmd == "resolve":
+        return resolve(a.file, a.use, a.name)
+    if a.cmd == "keep-both":
+        return keep_both(a.file, a.name, a.discard)
     return place(a.files, a.lang, a.model, a.solution, a.brand, a.kind, a.force)
 
 

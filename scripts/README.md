@@ -13,7 +13,7 @@
 | `INSTALL.md` | 给 Claude Code / Codex 执行的安装说明（已装 agent 的同事用这个）：装 Git / GitHub CLI / Python，用户本人登录 GitHub，拉取仓库、装依赖、设置提交署名、环境检查。用户对 agent 说「请用 curl 下载 https://raw.githubusercontent.com/inhandnet/marketing-assets/main/scripts/INSTALL.md ，按里面的步骤帮我安装市场素材库」 | 市场部同事的 agent |
 | `setup.ps1` | 新电脑一键安装：用 winget 装 Git / GitHub CLI / Python，装 Claude Code，浏览器登录 GitHub，拉取仓库，装依赖，用 GitHub noreply 邮箱设置本仓库提交署名，桌面建快捷方式，最后运行 `upload.py doctor`。可重复运行。用法：`irm https://raw.githubusercontent.com/inhandnet/marketing-assets/main/scripts/setup.ps1 \| iex`。文件不能带 BOM | 市场部同事（每台电脑一次） |
 | `setup.sh` | 苹果电脑版一键安装：Homebrew（官方源不通时用清华镜像）装 Git / GitHub CLI / Python 3.12，其余同 `setup.ps1`；PATH 写入 `~/.zprofile`（`python` 指向 Homebrew Python），桌面建 `市场素材库.command`。用法：`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/inhandnet/marketing-assets/main/scripts/setup.sh)"`（不能用 `curl \| bash`，否则无法输入密码和登录）。尚未在真机测试 | 用 Mac 的同事 |
-| `upload.py` | 本地上传工具：`doctor` / `check` / `push [--compress | --compress-all]` / `place`。两个 Claude Code skill 都调用它 | 市场部（经 Claude Code） |
+| `upload.py` | 本地上传工具：`doctor` / `check` / `push [--compress | --compress-all] [--replace 文件…]` / `place` / `resolve` / `keep-both`。多人同时上传时绝不自动覆盖：与别人的新改动碰到同一文件时把本地版本移到 `.冲突暂存/` 并停下（`resolve` 按用户选择处理）；替换 / 删除已有素材、新文件规范名与已有文件重名时也停下，需用户确认（`--replace` / `keep-both`）。两个 Claude Code skill 都调用它 | 市场部（经 Claude Code） |
 
 本地运行：`pip install pillow pyyaml`，然后 `python scripts/build.py --dry-run` 预览。
 国内镜像本地预览：`pip install boto3`，`python scripts/sync_cn.py --dry-run --profile marketing-cn`（`--prefix _sync-test/` 可在测试前缀下试跑，用完删掉）。
