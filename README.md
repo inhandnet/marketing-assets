@@ -12,15 +12,31 @@ solution materials and brand assets — for sales teams, channel partners, press
 ## Layout
 
 ```
-<lang>/products/<MODEL>/images|brochures|videos/      product assets (model IDs as on the website)
-<lang>/solutions/<SOLUTION>/images|brochures|videos/  solution assets, one folder per solution (e.g. IWOS)
-<lang>/brand/logo|vi|templates|company|videos/        logos (incl. vector), brand guidelines, templates, company profile
+en/                          English assets (zh/ has the same structure, in Chinese)
+├── products/<MODEL>/        product assets; model names as on the website, e.g. IR315, EC5350
+│   ├── images/              product photos, application scenes, posters
+│   ├── brochures/           brochures and designed datasheets
+│   └── videos/              video info (the video files are in Releases)
+├── solutions/<SOLUTION>/    solution assets, one folder per solution, e.g. IWOS
+│   └── images/  brochures/  videos/
+└── brand/                   brand assets
+    ├── logo/                logos, incl. SVG and other vector files
+    ├── vi/                  visual identity and brand guidelines
+    ├── templates/           PowerPoint and Word templates
+    ├── company/             company profile, brochures, certificates and awards
+    └── videos/              corporate video info (the video files are in Releases)
 ```
 
-`<lang>` is `zh` or `en`. Video files live in Releases, one per model / solution and language
-(e.g. `IR315 English videos`, `Solution IWOS English videos`, `InHand corporate videos (English)`);
-`videos/*.yml` holds their titles and download links. Every asset has a one-line description in its folder's
-`descriptions.yml`.
+**Videos** are downloaded from [Releases](../../releases). Each product and solution has one release per language:
+
+| Content | Release name examples |
+| --- | --- |
+| Product videos | "IR315 English videos", "IR315 中文视频" |
+| Solution videos | "Solution IWOS English videos", "解决方案 IWOS 中文视频" |
+| Corporate videos | "InHand corporate videos (English)", "公司宣传片（中文）" |
+
+File names follow `<MODEL or SOLUTION>_<content>_<ZH|EN>`, e.g. `IR315_Brochure_EN.pdf`; brand assets start with `InHand_`.
+Every asset has a one-line description in its folder's `descriptions.yml`.
 
 ## For AI and tooling
 
