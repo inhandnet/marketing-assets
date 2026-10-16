@@ -2,9 +2,9 @@
 
 Public marketing assets from InHand Networks: product images, brochures, designed datasheets, promo videos,
 solution materials and brand assets — for sales teams, channel partners, press and AI assistants.
-中文说明见 [README_CN.md](README_CN.md).
+Chinese version: [README_CN.md](README_CN.md).
 
-- Gallery (browse by category, thumbnails, direct download): [English](https://inhandnet.github.io/marketing-assets/_generated/gallery/en.html) · [中文](https://inhandnet.github.io/marketing-assets/_generated/gallery/zh.html)
+- Gallery (browse by category, thumbnails, direct download): [English](https://inhandnet.github.io/marketing-assets/_generated/gallery/en.html) · [Chinese](https://inhandnet.github.io/marketing-assets/_generated/gallery/zh.html)
 - Chinese assets: [`zh/`](zh/) · English assets: [`en/`](en/)
 - Videos: [Releases](../../releases)
 - Engineering datasheets, manuals, certificates and drawings: [inhandnet/documents](https://github.com/inhandnet/documents)
@@ -27,13 +27,13 @@ en/                          English assets (zh/ has the same structure, in Chin
     └── videos/              corporate video info (the video files are in Releases)
 ```
 
-**Videos** are downloaded from [Releases](../../releases). Each product and solution has one release per language:
+**Videos** are downloaded from [Releases](../../releases). Each product and solution has one release for English videos and one for Chinese videos:
 
-| Content | Release name examples |
+| Content | English release name example |
 | --- | --- |
-| Product videos | "IR315 English videos", "IR315 中文视频" |
-| Solution videos | "Solution IWOS English videos", "解决方案 IWOS 中文视频" |
-| Corporate videos | "InHand corporate videos (English)", "公司宣传片（中文）" |
+| Product videos | IR315 English videos |
+| Solution videos | Solution IWOS English videos |
+| Corporate videos | InHand corporate videos (English) |
 
 File names follow `<MODEL or SOLUTION>_<content>_<ZH|EN>`, e.g. `IR315_Brochure_EN.pdf`; brand assets start with `InHand_`.
 Every asset has a one-line description in its folder's `descriptions.yml`.
