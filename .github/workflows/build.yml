@@ -67,7 +67,7 @@ jobs:
             if git diff --cached --quiet; then
               echo "无变化"; break
             fi
-            git commit -q -m "chore: 自动整理素材并更新清单"
+            git commit -q -m "chore: auto-organize assets and update catalog"
             if git push -q origin HEAD:main; then break; fi
             echo "推送冲突，第 $i 次重试"; sleep 5
           done

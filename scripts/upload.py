@@ -405,10 +405,16 @@ def push(message: str | None, compress: str | None = None) -> int:
     if not staged and not uploaded_videos:
         say("  没有需要提交的变化。")
         return 0
-    user = run(["git", "config", "user.name"], check=False) or "市场部"
-    head = "整体压缩图片" if compress == "all" else "素材上传"
-    msg = message or f"{head}：{len(staged)} 个文件" + (f"，{len(uploaded_videos)} 个视频" if uploaded_videos else "")
-    run(["git", "commit", "-m", f"{msg}（{user}）"])
+    # 提交说明用英文（GitHub 页面上更通用），如 "Upload assets: IR315, IWOS (3 files, 1 video) by jiajy"
+    user = run(["git", "config", "user.name"], check=False) or "marketing"
+    owners = sorted({Path(r).parts[2] if len(Path(r).parts) > 3 and Path(r).parts[1] != "brand" else "brand"
+                     for r in staged})
+    scope = ", ".join(owners[:5]) + (f" +{len(owners) - 5}" if len(owners) > 5 else "")
+    counts = f"{len(staged)} file{'s' * (len(staged) != 1)}" + (
+        f", {len(uploaded_videos)} video{'s' * (len(uploaded_videos) != 1)}" if uploaded_videos else "")
+    head = "Compress images" if compress == "all" else "Upload assets"
+    msg = message or (f"{head}: {scope} ({counts})" if scope else f"{head} ({counts})")
+    run(["git", "commit", "-m", f"{msg} by {user}"])
     for attempt in (1, 2):
         res = git_net(["push", "origin", "main"])
         if res.returncode == 0:
