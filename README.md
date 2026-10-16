@@ -13,7 +13,7 @@ solution materials and brand assets — for sales teams, channel partners, press
 
 ```
 <lang>/products/<MODEL>/images|brochures|videos/      product assets (model IDs as on the website)
-<lang>/solutions/<SOLUTION>/images|brochures|videos/  solution assets (as listed under "Solutions" on the website)
+<lang>/solutions/<SOLUTION>/images|brochures|videos/  solution assets, one folder per solution (e.g. IWOS)
 <lang>/brand/logo|vi|templates|company|videos/        logos (incl. vector), brand guidelines, templates, company profile
 ```
 
