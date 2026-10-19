@@ -1,4 +1,23 @@
 {
   "schema_version": 1,
-  "assets": []
+  "assets": [
+    {
+      "path": "en/products/ODU302/brochures/ODU302_Flyer_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU302",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 654121,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf",
+      "url_cn": "",
+      "display_name": "ODU302",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU302",
+      "description": "English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information."
+    }
+  ]
 }

@@ -6,3 +6,7 @@
 ## 中文素材 (zh)
 
 ## English assets (en)
+
+### ODU302 — 5G & 4G Routers / Outdoor Routers
+
+- [ODU302_Flyer_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf) (brochures, pdf): English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information.
