@@ -104,6 +104,36 @@
       "description": "Alternate English ODU12 Verizon Certified promotional poster featuring the outdoor 5G router against residential, snowy, and commercial building scenes."
     },
     {
+      "path": "en/products/ODU12/videos/ODU12_Creative_Video_EN.yml",
+      "lang": "en",
+      "section": "products",
+      "type": "videos",
+      "model": "ODU12",
+      "solution": null,
+      "format": "video",
+      "bytes": 291,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/videos/ODU12_Creative_Video_EN.yml",
+      "url_cn": "",
+      "display_name": "ODU12",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU12",
+      "video": {
+        "title": "ODU12_Creative_Video_EN",
+        "duration": "",
+        "subtitle": "",
+        "description": "",
+        "source": "release",
+        "file": "ODU12_Creative_Video_EN.mp4",
+        "bytes": 8549871,
+        "download_global": "https://github.com/inhandnet/marketing-assets/releases/download/ODU12-en/ODU12_Creative_Video_EN.mp4",
+        "updated_at": "2026-10-19T07:34:56Z"
+      },
+      "cn_key": "en/products/ODU12/videos/ODU12_Creative_Video_EN.mp4",
+      "description": "English ODU12 creative video using a balance-scale concept to present the product’s outdoor 5G value."
+    },
+    {
       "path": "en/products/ODU302/brochures/ODU302_Flyer_EN.pdf",
       "lang": "en",
       "section": "products",
