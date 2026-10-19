@@ -7,6 +7,10 @@
 
 ## English assets (en)
 
+### ODU12 — 5G & 4G Routers / Outdoor Routers
+
+- [ODU12_Verizon_Certified_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_EN.png) (images, png, 1122×1402): English ODU12 Verizon Certified promotional poster showing the outdoor 5G router installed on an exterior wall beside a waterfront café.
+
 ### ODU302 — 5G & 4G Routers / Outdoor Routers
 
 - [ODU302_Flyer_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf) (brochures, pdf): English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information.
