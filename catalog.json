@@ -2,6 +2,24 @@
   "schema_version": 1,
   "assets": [
     {
+      "path": "zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU12",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 2708943,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf",
+      "url_cn": "",
+      "display_name": "ODU12",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "室外路由器",
+      "group": "ODU12",
+      "description": "ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。"
+    },
+    {
       "path": "en/products/ODU12/images/ODU12_Rural_Outdoor_5G_Coming_Soon_EN.png",
       "lang": "en",
       "section": "products",

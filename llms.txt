@@ -5,6 +5,10 @@
 
 ## 中文素材 (zh)
 
+### ODU12 — 5G & 4G 路由器 / 室外路由器
+
+- [ODU12_Flyer_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf) (brochures, pdf): ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。
+
 ## English assets (en)
 
 ### ODU12 — 5G & 4G Routers / Outdoor Routers
