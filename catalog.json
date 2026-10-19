@@ -23,6 +23,27 @@
       "description": "English ODU12 Verizon Certified promotional poster showing the outdoor 5G router installed on an exterior wall beside a waterfront café."
     },
     {
+      "path": "en/products/ODU12/images/ODU12_Verizon_Certified_V2_EN.jpg",
+      "lang": "en",
+      "section": "products",
+      "type": "images",
+      "model": "ODU12",
+      "solution": null,
+      "format": "jpg",
+      "bytes": 197569,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_V2_EN.jpg",
+      "url_cn": "",
+      "display_name": "ODU12",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU12",
+      "width": 1122,
+      "height": 1402,
+      "thumb": "_generated/thumbs/en/products/ODU12/images/ODU12_Verizon_Certified_V2_EN.jpg.webp",
+      "description": "Alternate English ODU12 Verizon Certified promotional poster featuring the outdoor 5G router against residential, snowy, and commercial building scenes."
+    },
+    {
       "path": "en/products/ODU302/brochures/ODU302_Flyer_EN.pdf",
       "lang": "en",
       "section": "products",

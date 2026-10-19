@@ -10,6 +10,7 @@
 ### ODU12 — 5G & 4G Routers / Outdoor Routers
 
 - [ODU12_Verizon_Certified_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_EN.png) (images, png, 1122×1402): English ODU12 Verizon Certified promotional poster showing the outdoor 5G router installed on an exterior wall beside a waterfront café.
+- [ODU12_Verizon_Certified_V2_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_V2_EN.jpg) (images, jpg, 1122×1402): Alternate English ODU12 Verizon Certified promotional poster featuring the outdoor 5G router against residential, snowy, and commercial building scenes.
 
 ### ODU302 — 5G & 4G Routers / Outdoor Routers
 
