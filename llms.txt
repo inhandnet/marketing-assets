@@ -20,7 +20,10 @@
 
 ### CR602 — 5G & 4G Routers / Battery-Powered Routers
 
+- [CR602_5G_Connectivity_for_RV_Travel_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/brochures/CR602_5G_Connectivity_for_RV_Travel_EN.pdf) (brochures, pdf): English three-page CR602 RV travel brochure covering 5G, Wi-Fi 7, device connectivity, key specifications, battery capacity, and InCloud management.
 - [CR602_15H_5G_Connectivity_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_15H_5G_Connectivity_EN.jpg) (images, jpg, 787×984): English CR602 promotional poster highlighting 15 hours of 5G connectivity and a 10,000mAh battery, with a hiking illustration and product render.
+- [CR602_Outdoor_Movie_Night_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_Outdoor_Movie_Night_EN.jpg) (images, jpg, 1600×2000): English CR602 outdoor movie night poster showing a lakeside campsite, projector screen, product render, and Wi-Fi connection graphic.
+- [CR602_RV_Campsite_Connected_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_RV_Campsite_Connected_EN.jpg) (images, jpg, 1200×1500): English CR602 campsite poster showing an RV, tent, product render, and connected devices, with “Your Campsite, Connected” headline.
 
 ### InCloud Manager — Cloud Service
 
