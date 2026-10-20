@@ -18,6 +18,10 @@
 
 ## English assets (en)
 
+### CR602 — 5G & 4G Routers / Battery-Powered Routers
+
+- [CR602_15H_5G_Connectivity_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_15H_5G_Connectivity_EN.jpg) (images, jpg, 787×984): English CR602 promotional poster highlighting 15 hours of 5G connectivity and a 10,000mAh battery, with a hiking illustration and product render.
+
 ### InCloud Manager — Cloud Service
 
 - [InCloud-Manager_1_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/InCloud-Manager/images/InCloud-Manager_1_EN.png) (images, png, 1344×1680): InCloud Agent network operations graphic with a robot before monitoring dashboards and the message “Less searching. More solving.”

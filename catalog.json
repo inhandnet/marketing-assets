@@ -104,6 +104,27 @@
       "description": "ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。"
     },
     {
+      "path": "en/products/CR602/images/CR602_15H_5G_Connectivity_EN.jpg",
+      "lang": "en",
+      "section": "products",
+      "type": "images",
+      "model": "CR602",
+      "solution": null,
+      "format": "jpg",
+      "bytes": 628643,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_15H_5G_Connectivity_EN.jpg",
+      "url_cn": "",
+      "display_name": "CR602",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Battery-Powered Routers",
+      "group": "CR602",
+      "width": 787,
+      "height": 984,
+      "thumb": "_generated/thumbs/en/products/CR602/images/CR602_15H_5G_Connectivity_EN.jpg.webp",
+      "description": "English CR602 promotional poster highlighting 15 hours of 5G connectivity and a 10,000mAh battery, with a hiking illustration and product render."
+    },
+    {
       "path": "en/products/InCloud-Manager/images/InCloud-Manager_1_EN.png",
       "lang": "en",
       "section": "products",
