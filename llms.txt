@@ -5,6 +5,13 @@
 
 ## 中文素材 (zh)
 
+### 小星云管家 — 云服务
+
+- [InCloud-Manager_1_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_1_ZH.png) (images, png, 1122×1402): 小星云智能体网络运维宣传图：机器人置于网络监控大屏前，中文文案“少翻页面，直接解决”。
+- [InCloud-Manager_2_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_2_ZH.png) (images, png, 1122×1402): 网络运维痛点宣传图：运维人员面对多块监控屏，展示站点多、信息散、操作杂三项问题。
+- [InCloud-Manager_3_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_3_ZH.png) (images, png, 1122×1402): 小星云管家智能体使用方式对比图：展示设备上云、企业自有 Agent 和设备直连三类场景。
+- [InCloud-Manager_4_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_4_ZH.png) (images, png, 1122×1402): 小星云智能体任务流程图：依次展示提出任务、获取信息、确认执行和检查结果。
+
 ### ODU12 — 5G & 4G 路由器 / 室外路由器
 
 - [ODU12_Flyer_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf) (brochures, pdf): ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。
