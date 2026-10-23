@@ -11,6 +11,10 @@
 - [InCloud-Manager_2_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_2_ZH.png) (images, png, 1122×1402): 网络运维痛点宣传图：运维人员面对多块监控屏，展示站点多、信息散、操作杂三项问题。
 - [InCloud-Manager_3_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_3_ZH.png) (images, png, 1122×1402): 小星云管家智能体使用方式对比图：展示设备上云、企业自有 Agent 和设备直连三类场景。
 - [InCloud-Manager_4_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_4_ZH.png) (images, png, 1122×1402): 小星云智能体任务流程图：依次展示提出任务、获取信息、确认执行和检查结果。
+- [InCloud-Manager_AI_Firmware_Analysis_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_AI_Firmware_Analysis_ZH.png) (images, png, 1122×1402): 小星云智能体固件版本对比与升级任务对话示意海报，中文文字。
+- [InCloud-Manager_Batch_Upgrade_Overview_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_Batch_Upgrade_Overview_ZH.png) (images, png, 1122×1402): 小星云智能体企业网络设备批量升级主题海报，办公场景，中文文字。
+- [InCloud-Manager_Efficient_Network_Operations_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_Efficient_Network_Operations_ZH.png) (images, png, 1122×1402): 企业网络批量筛查、快速定位与人工把关运维海报，中文文字。
+- [InCloud-Manager_Upgrade_Precheck_Process_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_Upgrade_Precheck_Process_ZH.png) (images, png, 1122×1402): 企业网络设备升级前登录、版本排查与逐台对比流程海报，中文文字。
 
 ### ODU12 — 5G & 4G 路由器 / 室外路由器
 
