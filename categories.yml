@@ -209,6 +209,11 @@ en:
       slug: lorawan-gateways
       models:
       - EC312-LoRaWAN
+  - name: Metering Gateways
+    slug: metering-gateways
+    models:
+    - MG301
+    - MG301-M
   - name: On-Board Computers
     slug: on-board-computers
     models:
