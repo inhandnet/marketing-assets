@@ -20,6 +20,11 @@
 
 - [ODU12_Flyer_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf) (brochures, pdf): ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。
 
+### XCR624 — 5G & 4G 路由器 / 工业路由器
+
+- [XCR624_工业现场-封面_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/XCR624/images/XCR624_%E5%B7%A5%E4%B8%9A%E7%8E%B0%E5%9C%BA-%E5%B0%81%E9%9D%A2_ZH.jpg) (images, jpg, 1200×1600): XCR624工业级信创5G路由器用于医疗设备改造的场景海报，中文文字，不透明背景。
+- [XCR624工业现场](https://github.com/inhandnet/marketing-assets/releases/download/XCR624-zh/XCR624_Video-dba446_ZH.mov) (videos, video): XCR624用于存量医疗设备改造，兼顾信创合规性。
+
 ## English assets (en)
 
 ### CR602 — 5G & 4G Routers / Battery-Powered Routers
