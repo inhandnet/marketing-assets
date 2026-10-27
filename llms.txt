@@ -57,3 +57,4 @@
 ### ODU302 — 5G & 4G Routers / Outdoor Routers
 
 - [ODU302_Flyer_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf) (brochures, pdf): English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information.
+- [ODU302_Two_Power_Options_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/images/ODU302_Two_Power_Options_EN.png) (images, png, 1122×1402): English ODU302 promotional poster showing PoE and 9–36V DC power options, wall-mounted deployment, and outdoor application examples.
