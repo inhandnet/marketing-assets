@@ -711,6 +711,22 @@
       "height": 1402,
       "thumb": "_generated/thumbs/en/products/ODU302/images/ODU302_Two_Power_Options_EN.png.webp",
       "description": "English ODU302 promotional poster showing PoE and 9–36V DC power options, wall-mounted deployment, and outdoor application examples."
+    },
+    {
+      "path": "en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf",
+      "lang": "en",
+      "section": "solutions",
+      "type": "brochures",
+      "model": null,
+      "solution": "Mobility",
+      "format": "pdf",
+      "bytes": 7750306,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf",
+      "url_cn": "",
+      "display_name": "Mobility",
+      "category": "Solutions",
+      "group": "Mobility",
+      "description": "Mobility products and services catalog covering public transport, engineering machinery, smart logistics, municipal and public safety, in-vehicle gateways and routers, on-board computers, telematics gateways, ADAS, and Smart Fleet solutions."
     }
   ]
 }
