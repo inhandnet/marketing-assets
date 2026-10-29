@@ -46,7 +46,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: pip install pillow pyyaml boto3
+      - run: pip install pillow pyyaml boto3 pypdfium2==4.30.0   # pypdfium2：PDF 第一页做缩略图
 
       # 同步视频 → 整理素材 → 提交。期间有人推送导致冲突时，取最新 main 重新生成再推，最多 3 次
       - name: 同步视频、整理素材并提交

@@ -299,6 +299,31 @@ def make_thumb(src: Path, dst: Path) -> None:
         im.save(dst, "WEBP", quality=80)
 
 
+def make_pdf_thumb(src: Path, dst: Path) -> bool:
+    """PDF 第一页 → 缩略图（WebP）。需要 pypdfium2（GitHub 自动整理时安装）；本地没装、PDF 加密或损坏时跳过。
+    返回是否有可用的缩略图（跳过时沿用已有的）"""
+    if dst.exists() and dst.stat().st_mtime >= src.stat().st_mtime:
+        return True
+    try:
+        import pypdfium2 as pdfium
+    except ImportError:
+        return dst.exists()
+    try:
+        pdf = pdfium.PdfDocument(str(src))
+        try:
+            page = pdf[0]
+            w, h = page.get_size()
+            im = page.render(scale=2 * THUMB_EDGE / max(w, h)).to_pil()  # 先按 2 倍渲染再缩小，文字更清楚
+        finally:
+            pdf.close()
+    except Exception:  # noqa: BLE001  加密、损坏的 PDF：画廊里显示占位块
+        return dst.exists()
+    im.thumbnail((THUMB_EDGE, THUMB_EDGE))
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    im.convert("RGB").save(dst, "WEBP", quality=80)
+    return True
+
+
 CN_TITLE_BAD = re.compile(r'[\\/:*?"<>|\x00-\x1f]')
 
 
@@ -481,6 +506,10 @@ def collect(dry_run: bool, categories: dict, compress: bool = False) -> tuple[li
                 if not dry_run:
                     make_thumb(path, thumb)
                 asset["thumb"] = thumb.relative_to(ROOT).as_posix()
+            elif path.exists() and path.suffix.lower() == ".pdf":  # PDF：第一页做缩略图
+                thumb = GEN / "thumbs" / (rel + ".webp")
+                if (make_pdf_thumb(path, thumb) if not dry_run else thumb.exists()):
+                    asset["thumb"] = thumb.relative_to(ROOT).as_posix()
 
             # 3) 视频说明文件
             if path.suffix.lower() in (".yml", ".yaml") and kind == "videos":

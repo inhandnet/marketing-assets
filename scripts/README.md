@@ -6,7 +6,7 @@
 
 | 脚本 | 作用 | 谁来运行 |
 | --- | --- | --- |
-| `build.py` | 统一型号 / 方案文件夹名（合并重复写法）、规范文件名、生成缩略图、`catalog.json`、`llms.txt`、画廊、检查报告。`--compress` 时把图片压到长边 2000 px、转 JPG（透明图 PNG），`brand/logo/` 除外 | CI（每次推送、每小时），上传工具 |
+| `build.py` | 统一型号 / 方案文件夹名（合并重复写法）、规范文件名、生成缩略图（图片；PDF 取第一页，需 pypdfium2，仅 CI 安装，本地没有则跳过）、`catalog.json`、`llms.txt`、画廊、检查报告。`--compress` 时把图片压到长边 2000 px、转 JPG（透明图 PNG），`brand/logo/` 除外 | CI（每次推送、每小时），上传工具 |
 | `sync_releases.py` | 为每个型号 / 方案文件夹和品牌资料建 Release，视频附件名改为纯英文规范名（中文原名存为附件显示名），生成 / 清理 `videos/*.yml` | CI，上传工具 |
 | `sync_categories.py` | 从中英文官网 WordPress 接口生成 `categories.yml`（品类、系列、型号；芯片厂商层级不作为系列。解决方案不同步，方案名就是 `solutions/` 下的文件夹名） | CI（每周一） |
 | `sync_cn.py` | 单向同步到国内镜像（AWS 中国区桶 `inhandwww-resources` + CloudFront `E3NBEQNO59BHGE`，域名 `media-hub.inhand.com.cn`）：素材、缩略图、国内版画廊、三个清单文件按仓库路径存放；视频从 Release 下载后按中文原名（`videos/*.yml` 的 title）存放。只传有变化的文件，GitHub 上删除的国内也删（只限 `zh/`、`en/`、`_generated/` 和清单文件），只刷新变化的 CDN 路径 | CI（每次整理后） |
