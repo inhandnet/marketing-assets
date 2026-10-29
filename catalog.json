@@ -185,6 +185,7 @@
       "category_slug": "routers",
       "series": "室外路由器",
       "group": "ODU12",
+      "thumb": "_generated/thumbs/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf.webp",
       "description": "ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。"
     },
     {
@@ -305,6 +306,7 @@
       "category_slug": "routers",
       "series": "Battery-Powered Routers",
       "group": "CR602",
+      "thumb": "_generated/thumbs/en/products/CR602/brochures/CR602_5G_Connectivity_for_RV_Travel_EN.pdf.webp",
       "description": "English three-page CR602 RV travel brochure covering 5G, Wi-Fi 7, device connectivity, key specifications, battery capacity, and InCloud management."
     },
     {
@@ -689,6 +691,7 @@
       "category_slug": "routers",
       "series": "Outdoor Routers",
       "group": "ODU302",
+      "thumb": "_generated/thumbs/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf.webp",
       "description": "English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information."
     },
     {
@@ -726,6 +729,7 @@
       "display_name": "Mobility",
       "category": "Solutions",
       "group": "Mobility",
+      "thumb": "_generated/thumbs/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf.webp",
       "description": "Mobility products and services catalog covering public transport, engineering machinery, smart logistics, municipal and public safety, in-vehicle gateways and routers, on-board computers, telematics gateways, ADAS, and Smart Fleet solutions."
     }
   ]
