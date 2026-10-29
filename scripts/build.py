@@ -487,6 +487,8 @@ def collect(dry_run: bool, categories: dict, compress: bool = False) -> tuple[li
                 meta = yaml.safe_load(path.read_text(encoding="utf-8")) or {}
                 asset["format"] = "video"
                 asset["video"] = meta
+                # url 指向视频本身（Release 附件），不是说明文件；path 仍是仓库里的说明文件
+                asset["url"] = meta.get("download_global") or asset["url"]
                 # 国内镜像里视频按中文原名存放（GitHub Release 附件名不能用中文）
                 key = cn_video_keys(path.parent).get(path.name)
                 if key:
@@ -544,11 +546,11 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
     out_dir = GEN / "gallery"
     out_dir.mkdir(parents=True, exist_ok=True)
     text = {
-        "zh": ("映翰通市场素材", "下载", "其他", "English"),
-        "en": ("InHand Marketing Assets", "Download", "Other", "中文"),
+        "zh": ("映翰通市场素材", "下载", "其他", "English", "打开"),
+        "en": ("InHand Marketing Assets", "Download", "Other", "中文", "Open"),
     }
     for lang in LANGS:
-        title, dl, other, switch = text[lang]
+        title, dl, other, switch, view = text[lang]
         other_lang = "en" if lang == "zh" else "zh"
         groups: dict[str, dict[str, list[dict]]] = {}
         for a in assets:
@@ -574,8 +576,12 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
                         if a["format"] == "svg"  # SVG 浏览器可直接显示，用原图当缩略图
                         else f"<div class='ph'>{html.escape(a['type'])}</div>"
                     )
+                    # 「打开」在新标签页里直接看（图片、PDF、mp4 浏览器都能直接显示 / 播放），「下载」保存到本地。
+                    # 注意：GitHub Release 上的视频不在同一网站，浏览器两个链接都会下载
                     body.append(
-                        f"<figure>{thumb}<figcaption>{html.escape(name)}<br>"
+                        f"<figure><a href='{href}' target='_blank' rel='noopener'>{thumb}</a>"
+                        f"<figcaption>{html.escape(name)}<br>"
+                        f"<a href='{href}' target='_blank' rel='noopener'>{view}</a> · "
                         f"<a href='{href}' download>{dl}</a></figcaption></figure>"
                     )
                 body.append("</div>")
