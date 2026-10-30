@@ -19,6 +19,7 @@
 ### ODU12 — 5G & 4G 路由器 / 室外路由器
 
 - [ODU12_Flyer_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf) (brochures, pdf): ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。
+- [ODU12_Outdoor_Text_Flash_CN](https://github.com/inhandnet/marketing-assets/releases/download/ODU12-zh/ODU12_Outdoor_Text_Flash_CN_ZH.mp4) (videos, video): ODU12 户外应用中文文字快闪宣传视频。
 
 ### XCR624 — 5G & 4G 路由器 / 工业路由器
 
@@ -55,6 +56,7 @@
 - [ODU12_Verizon_Certified_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_EN.png) (images, png, 1122×1402): English ODU12 Verizon Certified promotional poster showing the outdoor 5G router installed on an exterior wall beside a waterfront café.
 - [ODU12_Verizon_Certified_V2_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_V2_EN.jpg) (images, jpg, 1122×1402): Alternate English ODU12 Verizon Certified promotional poster featuring the outdoor 5G router against residential, snowy, and commercial building scenes.
 - [ODU12_Creative_Video_EN](https://github.com/inhandnet/marketing-assets/releases/download/ODU12-en/ODU12_Creative_Video_EN.mp4) (videos, video): English ODU12 creative video using a balance-scale concept to present the product’s outdoor 5G value.
+- [ODU12_Outdoor_Text_Flash_EN](https://github.com/inhandnet/marketing-assets/releases/download/ODU12-en/ODU12_Outdoor_Text_Flash_EN.mp4) (videos, video): English ODU12 outdoor promotional video featuring fast-paced animated text.
 
 ### ODU302 — 5G & 4G Routers / Outdoor Routers
 

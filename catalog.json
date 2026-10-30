@@ -189,6 +189,36 @@
       "description": "ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。"
     },
     {
+      "path": "zh/products/ODU12/videos/ODU12_Outdoor_Text_Flash_CN_ZH.yml",
+      "lang": "zh",
+      "section": "products",
+      "type": "videos",
+      "model": "ODU12",
+      "solution": null,
+      "format": "video",
+      "bytes": 310,
+      "url": "https://github.com/inhandnet/marketing-assets/releases/download/ODU12-zh/ODU12_Outdoor_Text_Flash_CN_ZH.mp4",
+      "url_cn": "",
+      "display_name": "ODU12",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "室外路由器",
+      "group": "ODU12",
+      "video": {
+        "title": "ODU12_Outdoor_Text_Flash_CN",
+        "duration": "",
+        "subtitle": "",
+        "description": "",
+        "source": "release",
+        "file": "ODU12_Outdoor_Text_Flash_CN_ZH.mp4",
+        "bytes": 54006700,
+        "download_global": "https://github.com/inhandnet/marketing-assets/releases/download/ODU12-zh/ODU12_Outdoor_Text_Flash_CN_ZH.mp4",
+        "updated_at": "2026-10-30T02:48:44Z"
+      },
+      "cn_key": "zh/products/ODU12/videos/ODU12_Outdoor_Text_Flash_CN.mp4",
+      "description": "ODU12 户外应用中文文字快闪宣传视频。"
+    },
+    {
       "path": "zh/products/XCR624/images/XCR624_CN封面_ZH.png",
       "lang": "zh",
       "section": "products",
@@ -674,6 +704,36 @@
       },
       "cn_key": "en/products/ODU12/videos/ODU12_Creative_Video_EN.mp4",
       "description": "English ODU12 creative video using a balance-scale concept to present the product’s outdoor 5G value."
+    },
+    {
+      "path": "en/products/ODU12/videos/ODU12_Outdoor_Text_Flash_EN.yml",
+      "lang": "en",
+      "section": "products",
+      "type": "videos",
+      "model": "ODU12",
+      "solution": null,
+      "format": "video",
+      "bytes": 304,
+      "url": "https://github.com/inhandnet/marketing-assets/releases/download/ODU12-en/ODU12_Outdoor_Text_Flash_EN.mp4",
+      "url_cn": "",
+      "display_name": "ODU12",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU12",
+      "video": {
+        "title": "ODU12_Outdoor_Text_Flash_EN",
+        "duration": "",
+        "subtitle": "",
+        "description": "",
+        "source": "release",
+        "file": "ODU12_Outdoor_Text_Flash_EN.mp4",
+        "bytes": 54061304,
+        "download_global": "https://github.com/inhandnet/marketing-assets/releases/download/ODU12-en/ODU12_Outdoor_Text_Flash_EN.mp4",
+        "updated_at": "2026-10-30T02:48:33Z"
+      },
+      "cn_key": "en/products/ODU12/videos/ODU12_Outdoor_Text_Flash_EN.mp4",
+      "description": "English ODU12 outdoor promotional video featuring fast-paced animated text."
     },
     {
       "path": "en/products/ODU302/brochures/ODU302_Flyer_EN.pdf",
