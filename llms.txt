@@ -23,6 +23,7 @@
 
 ### ODU302 — 5G & 4G 路由器 / 室外路由器
 
+- [ODU302_Construction_Site_CN_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/brochures/ODU302_Construction_Site_CN_ZH.pdf) (brochures, pdf): 三页 ODU302 工地联网场景中文宣传 PDF。
 - [ODU302_All_in_One_Outdoor_Solution_CN_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/images/ODU302_All_in_One_Outdoor_Solution_CN_ZH.jpg) (images, jpg, 928×1152): ODU302 一体化户外方案中文宣传图，对比传统多配件方案，展示内置全向天线、IP65 防护和 PoE 受电。
 - [ODU302_Steel_Framed_Warehouse_Signal_CN_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/images/ODU302_Steel_Framed_Warehouse_Signal_CN_ZH.png) (images, png, 1080×1350): ODU302 钢结构仓库场景中文宣传图，展示室外壁挂安装以应对室内蜂窝信号受限。
 - [ODU302_Three_Mounting_Options_CN_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/images/ODU302_Three_Mounting_Options_CN_ZH.jpg) (images, jpg, 3840×4800): ODU302 三种安装方式中文宣传图，展示壁挂、顶部和抱杆安装。
@@ -67,6 +68,7 @@
 
 ### ODU302 — 5G & 4G Routers / Outdoor Routers
 
+- [ODU302_Construction_Site_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Construction_Site_EN.pdf) (brochures, pdf): Three-page English ODU302 promotional PDF presenting construction-site connectivity scenarios.
 - [ODU302_Flyer_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf) (brochures, pdf): English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information.
 - [ODU302_All_in_One_Outdoor_Solution_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/images/ODU302_All_in_One_Outdoor_Solution_EN.jpg) (images, jpg, 928×1152): English ODU302 poster comparing a traditional multi-component setup with an all-in-one outdoor solution featuring built-in antennas, IP65 protection, and PoE input.
 - [ODU302_Steel_Framed_Warehouse_Signal_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/images/ODU302_Steel_Framed_Warehouse_Signal_EN.png) (images, png, 1080×1350): English ODU302 poster showing exterior installation for steel-framed warehouses where indoor cellular signal is limited.
