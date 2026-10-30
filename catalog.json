@@ -464,6 +464,22 @@
       "description": "XCR624用于存量医疗设备改造，兼顾信创合规性。"
     },
     {
+      "path": "en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf",
+      "lang": "en",
+      "section": "brand",
+      "type": "company",
+      "model": null,
+      "solution": null,
+      "format": "pdf",
+      "bytes": 6327745,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf",
+      "url_cn": "",
+      "category": "Brand",
+      "group": "Company profile",
+      "thumb": "_generated/thumbs/en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf.webp",
+      "description": "English 5G and 4G router portfolio brochure covering business, outdoor, battery-powered, vehicle, and industrial routers, plus cloud services and selection guides."
+    },
+    {
       "path": "en/products/CR602/brochures/CR602_5G_Connectivity_for_RV_Travel_EN.pdf",
       "lang": "en",
       "section": "products",

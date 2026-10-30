@@ -82,3 +82,7 @@
 ### Mobility — Solutions
 
 - [Mobility_product-catalog_mobility_Oct28_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf) (brochures, pdf): Mobility products and services catalog covering public transport, engineering machinery, smart logistics, municipal and public safety, in-vehicle gateways and routers, on-board computers, telematics gateways, ADAS, and Smart Fleet solutions.
+
+### Company profile — Brand
+
+- [InHand_5G_4G_Routers_Brochure_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf) (company, pdf): English 5G and 4G router portfolio brochure covering business, outdoor, battery-powered, vehicle, and industrial routers, plus cloud services and selection guides.
