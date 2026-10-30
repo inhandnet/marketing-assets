@@ -238,6 +238,25 @@
       "description": "三页 ODU302 工地联网场景中文宣传 PDF。"
     },
     {
+      "path": "zh/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_CN_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU302",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1187224,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_CN_ZH.pdf",
+      "url_cn": "",
+      "display_name": "ODU302",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "室外路由器",
+      "group": "ODU302",
+      "thumb": "_generated/thumbs/zh/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_CN_ZH.pdf.webp",
+      "description": "三页 ODU302 地下停车场充电桩联网场景中文宣传 PDF。"
+    },
+    {
       "path": "zh/products/ODU302/images/ODU302_All_in_One_Outdoor_Solution_CN_ZH.jpg",
       "lang": "zh",
       "section": "products",
@@ -875,6 +894,25 @@
       "group": "ODU302",
       "thumb": "_generated/thumbs/en/products/ODU302/brochures/ODU302_Flyer_EN.pdf.webp",
       "description": "English ODU302 4G outdoor router flyer covering product overview, application scenarios, key features, specifications, and ordering information."
+    },
+    {
+      "path": "en/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU302",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1192000,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_EN.pdf",
+      "url_cn": "",
+      "display_name": "ODU302",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU302",
+      "thumb": "_generated/thumbs/en/products/ODU302/brochures/ODU302_Underground_EV_Charger_Connectivity_EN.pdf.webp",
+      "description": "Three-page English ODU302 promotional PDF presenting underground EV charger connectivity scenarios."
     },
     {
       "path": "en/products/ODU302/images/ODU302_All_in_One_Outdoor_Solution_EN.jpg",
