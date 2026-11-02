@@ -38,6 +38,10 @@
 - [10.27 XCR雪亮工程](https://github.com/inhandnet/marketing-assets/releases/download/XCR624-zh/XCR624_10.27_XCR_ZH.mp4) (videos, video): XCR624 雪亮工程信创升级短视频，介绍设备为摄像头和环境传感器提供网络连接，打通城市安防关键环节。
 - [XCR624工业现场](https://github.com/inhandnet/marketing-assets/releases/download/XCR624-zh/XCR624_Video-dba446_ZH.mov) (videos, video): XCR624用于存量医疗设备改造，兼顾信创合规性。
 
+### 公司介绍 / 画册 / 资质荣誉 — 品牌资料
+
+- [InHand_5G_Routers_Portfolio_CN_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf) (company, pdf): 映翰通全场景 5G 路由器中文产品合集，覆盖商用、户外、工业和车载场景。
+
 ## English assets (en)
 
 ### CR602 — 5G & 4G Routers / Battery-Powered Routers
@@ -86,3 +90,4 @@
 ### Company profile — Brand
 
 - [InHand_5G_4G_Routers_Brochure_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf) (company, pdf): English 5G and 4G router portfolio brochure covering business, outdoor, battery-powered, vehicle, and industrial routers, plus cloud services and selection guides.
+- [InHand_5G_Routers_Portfolio_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/brand/company/InHand_5G_Routers_Portfolio_EN.pdf) (company, pdf): English 5G router portfolio covering business, battery-powered, outdoor, industrial, and in-vehicle connectivity scenarios.

@@ -2,6 +2,22 @@
   "schema_version": 1,
   "assets": [
     {
+      "path": "zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf",
+      "lang": "zh",
+      "section": "brand",
+      "type": "company",
+      "model": null,
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1578453,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf",
+      "url_cn": "",
+      "category": "品牌资料",
+      "group": "公司介绍 / 画册 / 资质荣誉",
+      "thumb": "_generated/thumbs/zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf.webp",
+      "description": "映翰通全场景 5G 路由器中文产品合集，覆盖商用、户外、工业和车载场景。"
+    },
+    {
       "path": "zh/products/InCloud-Manager/images/InCloud-Manager_1_ZH.png",
       "lang": "zh",
       "section": "products",
@@ -478,6 +494,22 @@
       "group": "Company profile",
       "thumb": "_generated/thumbs/en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf.webp",
       "description": "English 5G and 4G router portfolio brochure covering business, outdoor, battery-powered, vehicle, and industrial routers, plus cloud services and selection guides."
+    },
+    {
+      "path": "en/brand/company/InHand_5G_Routers_Portfolio_EN.pdf",
+      "lang": "en",
+      "section": "brand",
+      "type": "company",
+      "model": null,
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1956608,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/brand/company/InHand_5G_Routers_Portfolio_EN.pdf",
+      "url_cn": "",
+      "category": "Brand",
+      "group": "Company profile",
+      "thumb": "_generated/thumbs/en/brand/company/InHand_5G_Routers_Portfolio_EN.pdf.webp",
+      "description": "English 5G router portfolio covering business, battery-powered, outdoor, industrial, and in-vehicle connectivity scenarios."
     },
     {
       "path": "en/products/CR602/brochures/CR602_5G_Connectivity_for_RV_Travel_EN.pdf",
