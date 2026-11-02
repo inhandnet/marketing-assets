@@ -35,8 +35,13 @@
 
 - [XCR624_CN封面_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/XCR624/images/XCR624_CN%E5%B0%81%E9%9D%A2_ZH.png) (images, png, 1200×1600): 雪亮工程信创升级封面，展示 XCR624 工业级信创路由器为道路监控摄像头提供网络连接。
 - [XCR624_工业现场-封面_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/XCR624/images/XCR624_%E5%B7%A5%E4%B8%9A%E7%8E%B0%E5%9C%BA-%E5%B0%81%E9%9D%A2_ZH.jpg) (images, jpg, 1200×1600): XCR624工业级信创5G路由器用于医疗设备改造的场景海报，中文文字，不透明背景。
+- [XCR624_微信图片_20261028100430_113_378_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/XCR624/images/XCR624_%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20261028100430_113_378_ZH.png) (images, png, 1122×1402): XCR624 工业级信创路由器宽温运行海报，冷热工业场景，中文标注 -40℃ 至 +70℃。
 - [10.27 XCR雪亮工程](https://github.com/inhandnet/marketing-assets/releases/download/XCR624-zh/XCR624_10.27_XCR_ZH.mp4) (videos, video): XCR624 雪亮工程信创升级短视频，介绍设备为摄像头和环境传感器提供网络连接，打通城市安防关键环节。
 - [XCR624工业现场](https://github.com/inhandnet/marketing-assets/releases/download/XCR624-zh/XCR624_Video-dba446_ZH.mov) (videos, video): XCR624用于存量医疗设备改造，兼顾信创合规性。
+
+### Mobility — 解决方案
+
+- [Mobility_车载与运输_产品宣传册_2611_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/solutions/Mobility/brochures/Mobility_%E8%BD%A6%E8%BD%BD%E4%B8%8E%E8%BF%90%E8%BE%93_%E4%BA%A7%E5%93%81%E5%AE%A3%E4%BC%A0%E5%86%8C_2611_ZH.pdf) (brochures, pdf): 车载与运输产品与方案目录，涵盖公共交通、工程机械、智能物流、市政公共安全及车载网关、路由器和计算机。
 
 ### 公司介绍 / 画册 / 资质荣誉 — 品牌资料
 
@@ -55,6 +60,8 @@
 - [CR602_Rear_Ports_Closeup_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_Rear_Ports_Closeup_EN.png) (images, png, 2000×2000): CR602 rear-panel close-up showing reset, dual SIM, WAN/LAN, LAN2, and USB-C power interfaces on a transparent background.
 - [CR602_Top_View_Antennas_Folded_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_Top_View_Antennas_Folded_EN.png) (images, png, 2000×2000): CR602 top product view with both side antennas folded, showing status indicators and rear interfaces on a transparent background.
 - [CR602_Top_View_Antennas_Open_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_Top_View_Antennas_Open_EN.png) (images, png, 2000×2000): CR602 top product view with both antennas raised, showing status indicators and model label on a transparent background.
+- [CR602_湖边-封面_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_%E6%B9%96%E8%BE%B9-%E5%B0%81%E9%9D%A2_EN.jpg) (images, jpg, 720×1280): CR602 5G cellular router in a nighttime lakeside camping scene, with English headline text on an opaque background.
+- [湖边](https://github.com/inhandnet/marketing-assets/releases/download/CR602-en/CR602_Video-80f032_EN.mp4) (videos, video): CR602 lakeside scene video highlighting up to 15 hours of battery life.
 
 ### InCloud Manager — Cloud Service
 
