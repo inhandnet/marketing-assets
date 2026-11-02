@@ -611,6 +611,27 @@
       "description": "CR602 product image from a low front angle, showing the top surface and battery housing on a transparent background."
     },
     {
+      "path": "en/products/CR602/images/CR602_Multi_Scenario_Connectivity_EN.png",
+      "lang": "en",
+      "section": "products",
+      "type": "images",
+      "model": "CR602",
+      "solution": null,
+      "format": "png",
+      "bytes": 3178949,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CR602/images/CR602_Multi_Scenario_Connectivity_EN.png",
+      "url_cn": "",
+      "display_name": "CR602",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Battery-Powered Routers",
+      "group": "CR602",
+      "width": 1200,
+      "height": 1500,
+      "thumb": "_generated/thumbs/en/products/CR602/images/CR602_Multi_Scenario_Connectivity_EN.png.webp",
+      "description": "English CR602 promotional image presenting RV, camping, and indoor use scenarios around the 5G cellular router."
+    },
+    {
       "path": "en/products/CR602/images/CR602_Outdoor_Movie_Night_EN.jpg",
       "lang": "en",
       "section": "products",
