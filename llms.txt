@@ -19,6 +19,10 @@
 ### ODU12 — 5G & 4G 路由器 / 室外路由器
 
 - [ODU12_Flyer_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12_Flyer_ZH.pdf) (brochures, pdf): ODU12 中文产品宣传册，介绍 5G 户外 AI 原生路由器的产品特点、应用场景、规格参数及订购信息。
+- [ODU12_Product_View_01_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/images/ODU12_Product_View_01_ZH.png) (images, png, 2000×2000): ODU12 透明背景产品图，视角 01。
+- [ODU12_Product_View_02_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/images/ODU12_Product_View_02_ZH.png) (images, png, 2000×2000): ODU12 透明背景产品图，视角 02。
+- [ODU12_Product_View_03_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/images/ODU12_Product_View_03_ZH.png) (images, png, 2000×2000): ODU12 透明背景产品图，视角 03。
+- [ODU12_Product_View_04_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/images/ODU12_Product_View_04_ZH.png) (images, png, 2000×2000): ODU12 透明背景产品图，视角 04。
 - [ODU12_Outdoor_Text_Flash_CN](https://github.com/inhandnet/marketing-assets/releases/download/ODU12-zh/ODU12_Outdoor_Text_Flash_CN_ZH.mp4) (videos, video): ODU12 户外应用中文文字快闪宣传视频。
 
 ### ODU302 — 5G & 4G 路由器 / 室外路由器
@@ -73,6 +77,10 @@
 
 ### ODU12 — 5G & 4G Routers / Outdoor Routers
 
+- [ODU12_Product_View_01_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Product_View_01_EN.png) (images, png, 2000×2000): ODU12 product image on a transparent background, view 01.
+- [ODU12_Product_View_02_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Product_View_02_EN.png) (images, png, 2000×2000): ODU12 product image on a transparent background, view 02.
+- [ODU12_Product_View_03_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Product_View_03_EN.png) (images, png, 2000×2000): ODU12 product image on a transparent background, view 03.
+- [ODU12_Product_View_04_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Product_View_04_EN.png) (images, png, 2000×2000): ODU12 product image on a transparent background, view 04.
 - [ODU12_Rural_Outdoor_5G_Coming_Soon_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Rural_Outdoor_5G_Coming_Soon_EN.png) (images, png, 3840×4800): English ODU12 Coming Soon poster showing the outdoor 5G router mounted on a rural utility pole, with farmland and hills in the background.
 - [ODU12_Urban_Outdoor_5G_Coming_Soon_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Urban_Outdoor_5G_Coming_Soon_EN.png) (images, png, 3840×4800): English ODU12 Coming Soon poster showing the outdoor 5G router mounted at a rooftop restaurant overlooking a city skyline at sunset.
 - [ODU12_Verizon_Certified_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/images/ODU12_Verizon_Certified_EN.png) (images, png, 1122×1402): English ODU12 Verizon Certified promotional poster showing the outdoor 5G router installed on an exterior wall beside a waterfront café.
