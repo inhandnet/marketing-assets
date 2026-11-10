@@ -119,9 +119,9 @@
 
 ### VR624 — 车载网关 / 车载路由器
 
+- [VR624-InVehicleRouter-New_Product_launch_1_EN](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624-InVehicleRouter-New_Product_launch_1_EN) (images, )
 - [VR624_In_Vehicle_Connectivity_ZH_V1.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_In_Vehicle_Connectivity_ZH_V1.jpg) (images, jpg, 1122×1402): VR624 车载连接中文宣传图 V1，展示面向车辆部署的双 SIM 故障切换、4 个 M12 X-code 千兆网口和 9–48 VDC 宽压输入。
 - [VR624_In_Vehicle_Connectivity_ZH_V2.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_In_Vehicle_Connectivity_ZH_V2.jpg) (images, jpg, 1122×1402): VR624 车载连接中文宣传图 V2，展示面向车辆部署的双 SIM 故障切换、4 个 M12 X-code 千兆网口和 9–48 VDC 宽压输入。
-- [VR624_画板_1_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_%E7%94%BB%E6%9D%BF_1_ZH.png) (images, png, 1353×1690): VR624新品发布第1张：公交车内背景搭配产品双视图，中文主题为一台车一张网一个管控点。
 - [VR624_画板_2_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_%E7%94%BB%E6%9D%BF_2_ZH.png) (images, png, 1354×1690): VR624新品发布第2张：车载屏幕、摄像头与设备场景拼图，中文展示车载联网整合难题。
 - [VR624_画板_3_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_%E7%94%BB%E6%9D%BF_3_ZH.png) (images, png, 1353×1690): VR624新品发布第3张：产品接口视图连接屏幕、摄像头及终端，中文展示统一车载联网。
 - [VR624_画板_4_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_%E7%94%BB%E6%9D%BF_4_ZH.png) (images, png, 1354×1690): VR624新品发布第4张：产品壁挂与公交车内安装示意，中文展示车载部署方式。

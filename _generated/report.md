@@ -2,7 +2,7 @@
 
 ## 自动整理
 
-- 无
+- zh/products/VR624/images/VR624-InVehicleRouter-New Product launch 1-EN → zh/products/VR624/images/VR624-InVehicleRouter-New_Product_launch_1_EN
 
 ## 需要人工处理
 
@@ -15,9 +15,10 @@
 - `en/products/ODU12/images/ODU12_Rural_Outdoor_5G_Coming_Soon_EN.png`：22.3 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 - `en/products/ODU12/images/ODU12_Urban_Outdoor_5G_Coming_Soon_EN.png`：22.0 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 
-## 没有描述的素材（18 个，说「补全素材描述」可补上）
+## 没有描述的素材（19 个，说「补全素材描述」可补上）
 
 · zh/products/IR602/videos/IR602_Factory_Monitoring_ZH.yml
+· zh/products/VR624/images/VR624-InVehicleRouter-New_Product_launch_1_EN
 · en/products/CPE02/videos/CPE02_Fiber_Pending_Office_EN.yml
 · en/products/CR602/videos/CR602_Animation_EN.yml
 · en/products/CR602/videos/CR602_Burger_Shop_EN.yml
