@@ -17,23 +17,23 @@
 
 ## 没有描述的素材（20 个，说「补全素材描述」可补上）
 
-· zh/products/IR602/videos/IR602_Factory_Monitoring_ZH.yml
+· zh/products/IR602/videos/IR602-Video-Factory_Monitoring_ZH.yml
 · zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
-· en/products/CPE02/videos/CPE02_Fiber_Pending_Office_EN.yml
-· en/products/CR602/videos/CR602_Animation_EN.yml
-· en/products/CR602/videos/CR602_Burger_Shop_EN.yml
-· en/products/CR602/videos/CR602_Lakeside_Battery_EN.yml
-· en/products/CR602/videos/CR602_Restaurant_Emergency_EN.yml
-· en/products/CR602/videos/CR602_Temporary_Office_EN.yml
-· en/products/CR602/videos/CR602_Trade_Show_EN.yml
-· en/products/CR602/videos/CR602_Unboxing_EN.yml
-· en/products/FWA12/videos/FWA12_CPC2026_Studio_Recap_EN.yml
-· en/products/FWA12/videos/FWA12_Dark_Background_Showcase_EN.yml
-· en/products/FWA12/videos/FWA12_Product_3D_Animation_EN.yml
-· en/products/IR602/videos/IR602_Factory_Floor_EN.yml
-· en/products/IR602/videos/IR602_Site_Alert_EN.yml
-· en/products/IR624/videos/IR624_DIN_Rail_Install_EN.yml
-· en/products/ODU12/videos/ODU12_Closeup_Teaser_EN.yml
-· en/products/ODU12/videos/ODU12_Warehouse_Loading_Dock_EN.yml
-· en/products/ODU302/videos/ODU302_Yard_Layout_Change_EN.yml
+· en/products/CPE02/videos/CPE02-Video-Fiber_Pending_Office_EN.yml
+· en/products/CR602/videos/CR602-Video-Animation_EN.yml
+· en/products/CR602/videos/CR602-Video-Burger_Shop_EN.yml
+· en/products/CR602/videos/CR602-Video-Lakeside_Battery_EN.yml
+· en/products/CR602/videos/CR602-Video-Restaurant_Emergency_EN.yml
+· en/products/CR602/videos/CR602-Video-Temporary_Office_EN.yml
+· en/products/CR602/videos/CR602-Video-Trade_Show_EN.yml
+· en/products/CR602/videos/CR602-Video-Unboxing_EN.yml
+· en/products/FWA12/videos/FWA12-Video-CPC2026_Studio_Recap_EN.yml
+· en/products/FWA12/videos/FWA12-Video-Dark_Background_Showcase_EN.yml
+· en/products/FWA12/videos/FWA12-Video-Product_3D_Animation_EN.yml
+· en/products/IR602/videos/IR602-Video-Factory_Floor_EN.yml
+· en/products/IR602/videos/IR602-Video-Site_Alert_EN.yml
+· en/products/IR624/videos/IR624-Video-DIN_Rail_Install_EN.yml
+· en/products/ODU12/videos/ODU12-Video-Closeup_Teaser_EN.yml
+· en/products/ODU12/videos/ODU12-Video-Warehouse_Loading_Dock_EN.yml
+· en/products/ODU302/videos/ODU302-Video-Yard_Layout_Change_EN.yml
 · en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf
