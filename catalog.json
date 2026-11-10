@@ -7521,6 +7521,25 @@
       "description": ""
     },
     {
+      "path": "en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "images",
+      "model": "VR624",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 17121510,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf",
+      "url_cn": "",
+      "display_name": "VR624",
+      "category": "Vehicle Gateways",
+      "category_slug": "vehicle-gateways-1",
+      "series": "Vehicle Routers",
+      "group": "VR624",
+      "thumb": "_generated/thumbs/en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf.webp",
+      "description": ""
+    },
+    {
       "path": "en/products/VR624/images/VR624_In_Vehicle_Connectivity_EN_V1.jpg",
       "lang": "en",
       "section": "products",

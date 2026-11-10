@@ -417,6 +417,7 @@
 
 ### VR624 — Vehicle Gateways / Vehicle Routers
 
+- [VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf) (images, pdf)
 - [VR624_In_Vehicle_Connectivity_EN_V1.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/VR624/images/VR624_In_Vehicle_Connectivity_EN_V1.jpg) (images, jpg, 1122×1402): English VR624 in-vehicle connectivity poster V1 highlighting dual-SIM failover, four M12 X-coded Gigabit Ethernet ports, and 9–48 VDC input.
 - [VR624_In_Vehicle_Connectivity_EN_V2.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/VR624/images/VR624_In_Vehicle_Connectivity_EN_V2.jpg) (images, jpg, 1122×1402): English VR624 in-vehicle connectivity poster V2 highlighting dual-SIM failover, four M12 X-coded Gigabit Ethernet ports, and 9–48 VDC input.
 
