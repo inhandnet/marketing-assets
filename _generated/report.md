@@ -2,7 +2,7 @@
 
 ## 自动整理
 
-- zh/products/VR624/images/VR624-InVehicleRouter-New Product launch 1-EN → zh/products/VR624/images/VR624-InVehicleRouter-New_Product_launch_1_EN
+- zh/products/VR624/images/VR624_In_Vehicle Router_New Product Launch_ZH.pdf → zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
 
 ## 需要人工处理
 
@@ -18,7 +18,7 @@
 ## 没有描述的素材（19 个，说「补全素材描述」可补上）
 
 · zh/products/IR602/videos/IR602_Factory_Monitoring_ZH.yml
-· zh/products/VR624/images/VR624-InVehicleRouter-New_Product_launch_1_EN
+· zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
 · en/products/CPE02/videos/CPE02_Fiber_Pending_Office_EN.yml
 · en/products/CR602/videos/CR602_Animation_EN.yml
 · en/products/CR602/videos/CR602_Burger_Shop_EN.yml
