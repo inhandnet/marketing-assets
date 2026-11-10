@@ -75,7 +75,8 @@ description: 整理「待上传」文件夹里随手丢进来的市场素材：�
 
 ```
 python scripts/upload.py place "待上传/IR315宣传册.pdf" --lang zh --model IR315
-python scripts/upload.py place "待上传/产品图1.jpg" "待上传/产品图2.jpg" --lang both --model IR315
+python scripts/upload.py place "待上传/IR315-front.jpg" "待上传/IR315-side.jpg" --lang both --model IR315
+python scripts/upload.py place "待上传/产品图.jpg" --lang both --model IR315 --en-name Product_Photo
 python scripts/upload.py place "待上传/IWOS方案介绍.pdf" --lang zh --solution IWOS
 python scripts/upload.py place "待上传/logo.png" "待上传/logo.ai" --lang both --brand logo
 python scripts/upload.py place "待上传/公司宣传片.mp4" --lang zh --brand videos
@@ -85,6 +86,7 @@ python scripts/upload.py place "待上传/公司宣传片.mp4" --lang zh --brand
 - `--lang`：`zh`、`en` 或 `both`
 - 类型一般自动判断；特殊情况加 `--type images|brochures|videos`
 - 出现「✗ 目标已存在」：问用户是替换还是改名，不要自行覆盖
+- **英文目录下的文件名不能有中文**：放进 en（含 `--lang both`）的文件名有中文时，先问用户英文名（可以给建议），用 `--en-name <英文名>` 指定，一次放一个文件；中文目录里的那份保留原名
 
 放完后告诉用户每个文件去了哪里。
 

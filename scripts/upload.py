@@ -167,6 +167,43 @@ def access_links(repo: str, staged: list[str]) -> list[str]:
     return out
 
 
+CJK_NAME = re.compile(r"[　-〿㐀-鿿豈-﫿＀-￯]")  # 中文字、中文标点、全角字符
+
+
+def chinese_names_in_en(items: dict) -> list[Path]:
+    """英文目录下、本次新加的文件里，文件名含中文的（已上传的文件不管，避免已有链接失效）"""
+    new = {e[3:] for e in status_z("--untracked-files=all") if e.startswith("??")}
+    out = []
+    for p in items["files"] + items["videos"]:  # 视频不进 Git，只要在本地就是新的
+        rel = p.relative_to(ROOT).as_posix()
+        if rel.startswith("en/") and CJK_NAME.search(p.name) and (rel in new or p in items["videos"]):
+            out.append(p)
+    return out
+
+
+def rename_file(rel: str, name: str) -> int:
+    """给还没上传的本地文件改名（用户同意后由 Claude / Codex 调用），描述跟着改"""
+    src = (ROOT / rel) if not Path(rel).is_absolute() else Path(rel)
+    if not src.is_file():
+        say(f"✗ 找不到文件：{rel}")
+        return 1
+    rel = src.relative_to(ROOT).as_posix()
+    if tracked_at("HEAD", rel):
+        say(f"✗ {rel} 已经上传过，不能用这个命令改名（改名会让已有链接失效）")
+        return 1
+    if "/" in name or "\\" in name:
+        say("✗ 新名字里不能有 / 或 \\")
+        return 1
+    dst = src.with_name(name if Path(name).suffix else name + src.suffix)
+    if dst.exists():
+        say(f"✗ {dst.relative_to(ROOT).as_posix()} 已存在，请换一个名字")
+        return 1
+    src.rename(dst)
+    rename_desc(src.parent, src.name, dst.name)
+    say(f"✓ {rel} → {dst.relative_to(ROOT).as_posix()}")
+    return 0
+
+
 def mb(n: int) -> str:
     return f"{n / 1048576:.1f} MB"
 
@@ -279,6 +316,9 @@ def check(compress: str | None = None) -> int:
             say(f"  · 视频 {p.relative_to(ROOT).as_posix()}（{mb(size)}）→ 将上传到 Release「{t[1]}」，文件名 {t[2]}")
     for p in items["blocked"]:
         problems.append(f"{p.relative_to(ROOT).as_posix()}：{BLOCKED_EXT[p.suffix.lower()]}不上传，请移走")
+    for p in chinese_names_in_en(items):
+        problems.append(f"{p.relative_to(ROOT).as_posix()}：英文目录下的文件名不能有中文，请改成英文名"
+                        f"（python scripts/upload.py rename \"<文件>\" <英文名>）")
     for rel, what in replacements([]) if compress != "all" else []:
         say(f"  ! 会{what}仓库里已有的素材：{rel}（上传前要问用户）")
     for rel in pending_conflicts():
@@ -619,6 +659,13 @@ def push(message: str | None, compress: str | None = None, replace: list[str] | 
         for p in items["blocked"]:
             say(f"  · {p.relative_to(ROOT).as_posix()}（{BLOCKED_EXT[p.suffix.lower()]}）")
         return 1
+    cn_names = chinese_names_in_en(items)
+    if cn_names:
+        say("\n✗ 英文目录下的文件名不能有中文，请先改成英文名（问过用户再改）：")
+        for p in cn_names:
+            say(f"  · {p.relative_to(ROOT).as_posix()}")
+        say('  改名：python scripts/upload.py rename "<文件>" <英文名>')
+        return 1
     # 上次推送失败留下的本地提交也要推上去
     ahead = int(run(["git", "rev-list", "--count", "origin/main..HEAD"], check=False) or 0)
     if not items["files"] and not items["videos"] and not items["descs"] and compress != "all"             and not replace and not ahead:  # 只有确认过的删除也要提交
@@ -764,7 +811,7 @@ def describe(file: str, text: str) -> int:
 # ---------- 归类（skill 2 用）----------
 
 def place(files: list[str], lang: str, model: str | None, solution: str | None, brand: str | None,
-          kind: str | None, force: bool) -> int:
+          kind: str | None, force: bool, en_name: str | None = None) -> int:
     """把文件放进 <lang>/products/<型号>/<类型>/、<lang>/solutions/<方案>/<类型>/ 或 <lang>/brand/<子文件夹>/。
     lang=both：中英文各放一份（无文字的图片用）"""
     langs = list(LANGS) if lang == "both" else [lang]
@@ -789,16 +836,29 @@ def place(files: list[str], lang: str, model: str | None, solution: str | None, 
             site = "中文" if lg == "zh" else "英文"
             say(f"✗ {what} {owner} 不在{site}官网产品列表中{hint}。确认无误可加 --force。")
             return 1
+    if "en" in langs:
+        cn = [f for f in files if CJK_NAME.search(Path(f).name)]
+        if cn and not en_name:
+            say("✗ 英文目录下的文件名不能有中文：" + "、".join(Path(f).name for f in cn))
+            say("  请问用户英文名，用 --en-name <英文名> 指定英文目录里这份的名字（一次放一个文件）")
+            return 1
+        if en_name and len(files) != 1:
+            say("✗ --en-name 一次只能用于一个文件")
+            return 1
+        if en_name and CJK_NAME.search(en_name):
+            say("✗ --en-name 里不能有中文")
+            return 1
     for f in files:
         for i, lg in enumerate(langs):
             last = i == len(langs) - 1
-            if place_one(f, lg, section, canonical, brand, kind, copy=not last):
+            name = en_name if lg == "en" and en_name else None
+            if place_one(f, lg, section, canonical, brand, kind, copy=not last, name=name):
                 return 1
     return 0
 
 
 def place_one(f: str, lang: str, section: str, owner: str | None, brand: str | None,
-              kind: str | None, copy: bool) -> int:
+              kind: str | None, copy: bool, name: str | None = None) -> int:
     src = Path(f)
     if not src.is_absolute():
         src = ROOT / src
@@ -825,6 +885,8 @@ def place_one(f: str, lang: str, section: str, owner: str | None, brand: str | N
         dest = ROOT / lang / "brand" / k / src.name
     else:
         dest = ROOT / lang / section / owner / k / src.name
+    if name:  # 指定了名字（英文目录里的英文名）；没写扩展名就沿用原来的
+        dest = dest.with_name(name if Path(name).suffix else name + src.suffix)
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.exists():
         say(f"✗ 目标已存在：{dest.relative_to(ROOT).as_posix()}")
@@ -875,6 +937,10 @@ def main() -> int:
     who.add_argument("--brand", choices=list(BRAND_TYPES), help="品牌资料子文件夹，放到 brand/<子文件夹>/")
     p.add_argument("--type", dest="kind", choices=["images", "brochures", "videos"])
     p.add_argument("--force", action="store_true")
+    p.add_argument("--en-name", help="英文目录里这份的文件名（原文件名含中文时必须指定）")
+    p = sub.add_parser("rename", help="给还没上传的文件改名（先问用户）")
+    p.add_argument("file")
+    p.add_argument("name")
     a = ap.parse_args()
     if a.cmd == "doctor":
         return 0 if doctor() else 1
@@ -890,7 +956,9 @@ def main() -> int:
         return resolve(a.file, a.use, a.name)
     if a.cmd == "keep-both":
         return keep_both(a.file, a.name, a.discard)
-    return place(a.files, a.lang, a.model, a.solution, a.brand, a.kind, a.force)
+    if a.cmd == "rename":
+        return rename_file(a.file, a.name)
+    return place(a.files, a.lang, a.model, a.solution, a.brand, a.kind, a.force, a.en_name)
 
 
 if __name__ == "__main__":

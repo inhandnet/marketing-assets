@@ -221,10 +221,30 @@ def normalize_stem(stem: str, lang: str, model: str | None) -> str:
         else:
             stem = f"{prefix}_{stem}"
     tokens = stem.split("_")
+    # 已经带 _ZH / _EN 的名字视为整理过（含仓库里已有的文件），连字符不再拆，避免已有文件被改名
+    if not any(LANG_TOKEN.match(t) for t in tokens):
+        tokens = [p for t in tokens for p in split_marks(t, prefix if model else None)]
     if not any(LANG_TOKEN.match(t) for t in tokens):
         pos = next((i for i, t in enumerate(tokens) if VERSION_TOKEN.match(t)), len(tokens))
         tokens.insert(pos, LANGS[lang])
     return "_".join(tokens)
+
+
+def split_marks(token: str, prefix: str | None) -> list[str]:
+    """用连字符连着的语言 / 版本号拆成单独的段，语言在前、版本在后：
+    VR624-V1-EN → VR624、EN、V1；Flyer-ZH → Flyer、ZH。其他连字符不动（Wi-Fi、Mo-62A、封面-ed）。
+    型号本身带连字符时（Mo-62A-V1），型号部分整体保留，只看后面的部分。"""
+    head = ""
+    if prefix and token.upper().startswith(prefix.upper() + "-"):
+        head, token = token[:len(prefix)], token[len(prefix):]
+    parts = token.split("-")
+    langs = [p for p in parts if LANG_TOKEN.match(p)]
+    versions = [p for p in parts if VERSION_TOKEN.match(p)]
+    if len(parts) < 2 or not (langs or versions):
+        return [head + token]
+    rest = "-".join(p for p in parts if p not in langs and p not in versions).strip("-")
+    word = (head + ("-" + rest if rest else "")) if head else rest
+    return ([word] if word else []) + langs + versions
 
 
 def model_prefix_end(stem: str, prefix: str) -> int:
