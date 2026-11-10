@@ -2,7 +2,7 @@
 
 ## 自动整理
 
-- zh/products/VR624/images/VR624_In_Vehicle Router_New Product Launch_ZH.pdf → zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
+- 无
 
 ## 需要人工处理
 

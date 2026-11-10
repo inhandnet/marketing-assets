@@ -1776,25 +1776,6 @@
       "description": "看起来在表现车辆驶入地下停车场时的信号受阻场景。"
     },
     {
-      "path": "zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf",
-      "lang": "zh",
-      "section": "products",
-      "type": "images",
-      "model": "VR624",
-      "solution": null,
-      "format": "pdf",
-      "bytes": 16925646,
-      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf",
-      "url_cn": "",
-      "display_name": "VR624",
-      "category": "车载网关",
-      "category_slug": "vehicle-gateways-1",
-      "series": "车载路由器",
-      "group": "VR624",
-      "thumb": "_generated/thumbs/zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf.webp",
-      "description": ""
-    },
-    {
       "path": "zh/products/VR624/images/VR624_In_Vehicle_Connectivity_ZH_V1.jpg",
       "lang": "zh",
       "section": "products",
@@ -1835,6 +1816,25 @@
       "height": 1402,
       "thumb": "_generated/thumbs/zh/products/VR624/images/VR624_In_Vehicle_Connectivity_ZH_V2.jpg.webp",
       "description": "VR624 车载连接中文宣传图 V2，展示面向车辆部署的双 SIM 故障切换、4 个 M12 X-code 千兆网口和 9–48 VDC 宽压输入。"
+    },
+    {
+      "path": "zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "images",
+      "model": "VR624",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 16925646,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf",
+      "url_cn": "",
+      "display_name": "VR624",
+      "category": "车载网关",
+      "category_slug": "vehicle-gateways-1",
+      "series": "车载路由器",
+      "group": "VR624",
+      "thumb": "_generated/thumbs/zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf.webp",
+      "description": ""
     },
     {
       "path": "zh/products/XCR624/images/XCR624_CN封面_ZH.png",
