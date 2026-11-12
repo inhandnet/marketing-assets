@@ -938,6 +938,25 @@
       "description": "看起来在表现车辆驶入地下停车场时的信号受阻场景。"
     },
     {
+      "path": "zh/products/VR624/brochures/VR624_Vehicle_Router_FAQ_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "brochures",
+      "model": "VR624",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 2048573,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/VR624/brochures/VR624_Vehicle_Router_FAQ_ZH.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/products/VR624/brochures/VR624_Vehicle_Router_FAQ_ZH.pdf",
+      "display_name": "VR624",
+      "category": "车载网关",
+      "category_slug": "vehicle-gateways-1",
+      "series": "车载路由器",
+      "group": "VR624",
+      "thumb": "_generated/thumbs/zh/products/VR624/brochures/VR624_Vehicle_Router_FAQ_ZH.pdf.webp",
+      "description": "VR624 车载路由器常见问题中文图文资料，介绍选择车载路由器时需要关注的连接、接口、供电与部署要点。"
+    },
+    {
       "path": "zh/products/VR624/images/VR624_In_Vehicle_Connectivity_ZH_V1.jpg",
       "lang": "zh",
       "section": "products",
@@ -5609,6 +5628,25 @@
       },
       "cn_key": "en/products/ODU302/videos/ODU302 Yard Layout Change.mp4",
       "description": ""
+    },
+    {
+      "path": "en/products/VR624/brochures/VR624_Vehicle_Router_FAQ_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "brochures",
+      "model": "VR624",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 2192622,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/VR624/brochures/VR624_Vehicle_Router_FAQ_EN.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/en/products/VR624/brochures/VR624_Vehicle_Router_FAQ_EN.pdf",
+      "display_name": "VR624",
+      "category": "Vehicle Gateways",
+      "category_slug": "vehicle-gateways-1",
+      "series": "Vehicle Routers",
+      "group": "VR624",
+      "thumb": "_generated/thumbs/en/products/VR624/brochures/VR624_Vehicle_Router_FAQ_EN.pdf.webp",
+      "description": "English illustrated VR624 FAQ covering key questions about connectivity, interfaces, power, and deployment when choosing a vehicle router."
     },
     {
       "path": "en/products/VR624/images/VR624_In_Vehicle_Connectivity_EN_V1.jpg",
