@@ -763,6 +763,25 @@
       "description": "三页 ODU302 工地联网场景中文宣传 PDF。"
     },
     {
+      "path": "zh/products/ODU302/brochures/ODU302-多图-地下充电桩联网-CN_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU302",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1380992,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/brochures/ODU302-%E5%A4%9A%E5%9B%BE-%E5%9C%B0%E4%B8%8B%E5%85%85%E7%94%B5%E6%A1%A9%E8%81%94%E7%BD%91-CN_ZH.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/products/ODU302/brochures/ODU302-%E5%A4%9A%E5%9B%BE-%E5%9C%B0%E4%B8%8B%E5%85%85%E7%94%B5%E6%A1%A9%E8%81%94%E7%BD%91-CN_ZH.pdf",
+      "display_name": "ODU302",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "室外路由器",
+      "group": "ODU302",
+      "thumb": "_generated/thumbs/zh/products/ODU302/brochures/ODU302-多图-地下充电桩联网-CN_ZH.pdf.webp",
+      "description": "ODU302 地下充电桩联网图文资料，展示利用室外信号实现地下充电设备联网的部署方案。"
+    },
+    {
       "path": "zh/products/ODU302/images/ODU302-图片-All_in_One_Outdoor_Solution_ZH.jpg",
       "lang": "zh",
       "section": "products",
@@ -5259,6 +5278,25 @@
       "group": "ODU302",
       "thumb": "_generated/thumbs/en/products/ODU302/brochures/ODU302-Image-Warehouse-Slide-Series_EN.pdf.webp",
       "description": "Four warehouse slides — wall-mount close-up, mounting options, network diagram and multi-site dashboard."
+    },
+    {
+      "path": "en/products/ODU302/brochures/ODU302-Multiple_Images-Underground_EV_Charging_Connectivity_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU302",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1401528,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/brochures/ODU302-Multiple_Images-Underground_EV_Charging_Connectivity_EN.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/en/products/ODU302/brochures/ODU302-Multiple_Images-Underground_EV_Charging_Connectivity_EN.pdf",
+      "display_name": "ODU302",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU302",
+      "thumb": "_generated/thumbs/en/products/ODU302/brochures/ODU302-Multiple_Images-Underground_EV_Charging_Connectivity_EN.pdf.webp",
+      "description": "ODU302 underground EV charging connectivity visual guide showing outdoor signal deployment, 4G LTE backhaul, and remote platform access."
     },
     {
       "path": "en/products/ODU302/images/ODU302-Image-All_in_One_Outdoor_Solution_EN.jpg",
