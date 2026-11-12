@@ -1018,6 +1018,36 @@
       "description": ""
     },
     {
+      "path": "zh/products/VR624/videos/VR624_In_Vehicle_Router_Requirements_ZH.yml",
+      "lang": "zh",
+      "section": "products",
+      "type": "videos",
+      "model": "VR624",
+      "solution": null,
+      "format": "video",
+      "bytes": 337,
+      "url": "https://github.com/inhandnet/marketing-assets/releases/download/VR624-zh/VR624_In_Vehicle_Router_Requirements_ZH.mp4",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/products/VR624/videos/VR624_In_Vehicle_Router_Requirements.mp4",
+      "display_name": "VR624",
+      "category": "车载网关",
+      "category_slug": "vehicle-gateways-1",
+      "series": "车载路由器",
+      "group": "VR624",
+      "video": {
+        "title": "VR624_In_Vehicle_Router_Requirements",
+        "duration": "",
+        "subtitle": "",
+        "description": "",
+        "source": "release",
+        "file": "VR624_In_Vehicle_Router_Requirements_ZH.mp4",
+        "bytes": 21703002,
+        "download_global": "https://github.com/inhandnet/marketing-assets/releases/download/VR624-zh/VR624_In_Vehicle_Router_Requirements_ZH.mp4",
+        "updated_at": "2026-11-12T09:28:53Z"
+      },
+      "cn_key": "zh/products/VR624/videos/VR624_In_Vehicle_Router_Requirements.mp4",
+      "description": "VR624 车载环境路由器要求中文短视频，介绍车辆部署对连接、供电、接口与抗振能力的要求。"
+    },
+    {
       "path": "zh/products/XCR624/images/XCR624-图片-CN封面_ZH.png",
       "lang": "zh",
       "section": "products",
@@ -5708,6 +5738,36 @@
       "group": "VR624",
       "thumb": "_generated/thumbs/en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf.webp",
       "description": ""
+    },
+    {
+      "path": "en/products/VR624/videos/VR624_In_Vehicle_Router_Requirements_EN.yml",
+      "lang": "en",
+      "section": "products",
+      "type": "videos",
+      "model": "VR624",
+      "solution": null,
+      "format": "video",
+      "bytes": 337,
+      "url": "https://github.com/inhandnet/marketing-assets/releases/download/VR624-en/VR624_In_Vehicle_Router_Requirements_EN.mp4",
+      "url_cn": "https://media-hub.inhand.com.cn/en/products/VR624/videos/VR624_In_Vehicle_Router_Requirements.mp4",
+      "display_name": "VR624",
+      "category": "Vehicle Gateways",
+      "category_slug": "vehicle-gateways-1",
+      "series": "Vehicle Routers",
+      "group": "VR624",
+      "video": {
+        "title": "VR624_In_Vehicle_Router_Requirements",
+        "duration": "",
+        "subtitle": "",
+        "description": "",
+        "source": "release",
+        "file": "VR624_In_Vehicle_Router_Requirements_EN.mp4",
+        "bytes": 21660041,
+        "download_global": "https://github.com/inhandnet/marketing-assets/releases/download/VR624-en/VR624_In_Vehicle_Router_Requirements_EN.mp4",
+        "updated_at": "2026-11-12T09:28:45Z"
+      },
+      "cn_key": "en/products/VR624/videos/VR624_In_Vehicle_Router_Requirements.mp4",
+      "description": "English VR624 short video explaining connectivity, power, interface, and vibration-resistance requirements for in-vehicle router deployments."
     },
     {
       "path": "en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf",
