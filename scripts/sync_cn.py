@@ -10,11 +10,12 @@ GitHub 是主仓库；本脚本由 GitHub Actions 在每次整理后运行，也
 - zh/、en/ 下的素材文件（图片、宣传册、Logo 等）
 - _generated/thumbs/ 缩略图；_generated/gallery/{zh,en}.cn.html → 国内版画廊 {zh,en}.html
 - catalog.json、llms.txt、categories.yml
+- _generated/site-cn/ 下的 index.html、sitemap.xml、robots.txt → 桶根目录（搜索引擎收录用）
 - 视频：从 GitHub Release 下载，按中文原名存到 <lang>/.../videos/<标题>.mp4（见 build.cn_video_keys）
 
 规则：
 - 只上传有变化的文件（普通文件比 MD5；视频比大小和 Release 更新时间）
-- GitHub 上已删除的文件，国内也删除；删除只限本脚本管理的路径（zh/、en/、_generated/ 和三个清单文件）
+- GitHub 上已删除的文件，国内也删除；删除只限本脚本管理的路径（zh/、en/、_generated/、三个清单文件和根目录的首页 / sitemap / robots）
 - 只刷新有变化的 CDN 路径；变化很多时刷新一次 /*
 凭据：GitHub Actions 用环境变量 AWS_ACCESS_KEY_ID / AWS_SECRET_ACCESS_KEY；本地用 --profile。
 """
@@ -43,7 +44,8 @@ BUCKET = "inhandwww-resources"
 REGION = "cn-north-1"
 DISTRIBUTION = "E3NBEQNO59BHGE"          # media-hub.inhand.com.cn
 ROOT_FILES = ["catalog.json", "llms.txt", "categories.yml"]
-MANAGED_PREFIXES = [*(f"{lang}/" for lang in LANGS), "_generated/", *ROOT_FILES]
+SITE_FILES = ["index.html", "sitemap.xml", "robots.txt"]  # _generated/site-cn/ → 桶根目录（搜索引擎收录用）
+MANAGED_PREFIXES = [*(f"{lang}/" for lang in LANGS), "_generated/", *ROOT_FILES, *SITE_FILES]
 SHORT_CACHE = "public, max-age=300"       # 清单、画廊：5 分钟
 LONG_CACHE = "public, max-age=86400"      # 素材：1 天（有变化时会刷新 CDN）
 TYPES = {".svg": "image/svg+xml", ".webp": "image/webp", ".yml": "text/yaml", ".yaml": "text/yaml",
@@ -107,6 +109,9 @@ def expected_objects(prefix: str) -> dict[str, dict]:
     for name in ROOT_FILES:
         if (ROOT / name).exists():
             add_file(ROOT / name, name, SHORT_CACHE)
+    for name in SITE_FILES:
+        if (GEN / "site-cn" / name).exists():
+            add_file(GEN / "site-cn" / name, name, SHORT_CACHE)
     return exp
 
 
@@ -118,7 +123,7 @@ def existing_objects(s3, prefix: str) -> dict[str, dict]:
         for page in pager.paginate(Bucket=BUCKET, Prefix=prefix + managed):
             for o in page.get("Contents", []):
                 key = o["Key"]
-                if managed in ROOT_FILES and key != prefix + managed:
+                if managed in (*ROOT_FILES, *SITE_FILES) and key != prefix + managed:
                     continue  # 根目录清单文件只精确匹配
                 found[key] = {"etag": o["ETag"].strip('"'), "size": o["Size"]}
     return found

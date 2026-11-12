@@ -52,6 +52,7 @@
 - 桶专用于素材库，根目录与仓库结构一致；不要往 `zh/`、`en/`、`_generated/` 下手工放文件，下次同步会被删除。
 - 国内版画廊：`build.py` 额外生成 `_generated/gallery/{zh,en}.cn.html`（视频链接指向国内中文名文件），同步时发布为桶里的 `_generated/gallery/{zh,en}.html`。
 - 仓库变量 `CN_BASE_URL`（已设为 `https://media-hub.inhand.com.cn`）：`catalog.json` 写入 `url_cn` 和 `cn_base_url`，`llms.txt` 每条多一个「国内下载」链接，上传工具会多列一行「国内下载」，国内版画廊的链接也用这个前缀。
+- 搜索引擎收录：`build.py` 生成首页 `index.html` 和 `sitemap.xml`（GitHub Pages 版在仓库根目录；国内版在 `_generated/site-cn/`，另有 `robots.txt`，由 `sync_cn.py` 发布到桶根目录）。sitemap 列出首页、两个画廊页（附带原图，供图片搜索）和所有 PDF；画廊页带 description、canonical、中英文 hreflang。需要在百度搜索资源平台 / Google Search Console / Bing 站长工具里验证站点并提交 sitemap。国内站根地址 `/` 要显示首页，需在 CloudFront 设置默认根对象 `index.html`。
 - 画廊链接用完整网址（国内版 `CN_BASE_URL`，GitHub 版 `PAGES_BASE_URL`，默认 Pages 地址），页面顶部链接 `llms.txt` / `catalog.json`：AI 抓网页时拿到的是能直接下载的地址，相对路径它拼不出域名。
 
 ## Codex 支持

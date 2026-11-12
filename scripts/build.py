@@ -604,6 +604,7 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
         "zh": ("映翰通市场素材", "下载", "其他", "English", "打开", "完整素材清单（含下载地址，供程序 / AI 读取）"),
         "en": ("InHand Marketing Assets", "Download", "Other", "中文", "Open", "Full asset list with download URLs (for programs / AI)"),
     }
+    gallery_url = f"{base}/_generated/gallery"
     for lang in LANGS:
         title, dl, other, switch, view, manifest = text[lang]
         other_lang = "en" if lang == "zh" else "zh"
@@ -625,9 +626,9 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
                     else:
                         href = a.get("video", {}).get("download_global") or f"{base}/{quote(a['path'])}"
                     thumb = (
-                        f"<img src='{base}/{quote(a['thumb'])}' alt='{html.escape(a.get('description') or name)}'>"
+                        f"<img loading='lazy' src='{base}/{quote(a['thumb'])}' alt='{html.escape(a.get('description') or name)}'>"
                         if a.get("thumb")
-                        else f"<img src='{base}/{quote(a['path'])}' alt='{html.escape(a.get('description') or name)}'>"
+                        else f"<img loading='lazy' src='{base}/{quote(a['path'])}' alt='{html.escape(a.get('description') or name)}'>"
                         if a["format"] == "svg"  # SVG 浏览器可直接显示，用原图当缩略图
                         else f"<div class='ph'>{html.escape(a['type'])}</div>"
                     )
@@ -642,6 +643,8 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
                 body.append("</div>")
         page = f"""<!doctype html><html lang="{lang}"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title>
+<meta name="description" content="{html.escape(SITE_DESC[lang])}">
+{seo_links(gallery_url, "{l}.html", lang) if base.startswith("http") else ""}
 <link rel="alternate" type="text/plain" href="{base}/llms.txt" title="llms.txt">
 <link rel="alternate" type="application/json" href="{base}/catalog.json" title="catalog.json">
 <style>body{{font-family:system-ui,sans-serif;margin:24px;color:#222}}
@@ -650,10 +653,78 @@ figure{{margin:0;border:1px solid #ddd;border-radius:8px;padding:8px}}
 img,.ph{{width:100%;height:160px;object-fit:contain;background:#f5f5f5;border-radius:4px}}
 .ph{{display:flex;align-items:center;justify-content:center;color:#888}}
 figcaption{{font-size:13px;margin-top:6px;word-break:break-all}}</style>
-<h1>{title} <small><a href="{other_lang}.html">{switch}</a></small></h1>
+<h1>{title} <small><a href="{other_lang}.html">{switch}</a> · <a href="{base}/">{SITE_HOME[lang]}</a></small></h1>
 <p><small>{manifest}: <a href="{base}/llms.txt">llms.txt</a> · <a href="{base}/catalog.json">catalog.json</a></small></p>
 {''.join(body)}</html>"""
         write_lf(out_dir / f"{lang}{'.cn' if cn else ''}.html", page)
+
+
+SITE_DESC = {
+    "zh": "映翰通（InHand Networks）官方公开市场素材库：工业路由器、5G/4G 路由器、边缘计算网关等产品图片、宣传册、彩页规格书、视频，以及解决方案和品牌资料，可直接查看和下载。",
+    "en": "Official InHand Networks marketing asset library: product images, brochures, datasheets and videos for industrial routers, 5G/4G routers and edge gateways, plus solution and brand materials, free to view and download.",
+}
+SITE_HOME = {"zh": "首页", "en": "Home"}
+
+
+def seo_links(prefix: str, page: str, lang: str) -> str:
+    """canonical + 中英文互指（hreflang）。page 里的 {l} 换成语言代码"""
+    tags = [f'<link rel="canonical" href="{prefix}/{page.format(l=lang)}">']
+    tags += [f'<link rel="alternate" hreflang="{"zh-CN" if l == "zh" else "en"}" href="{prefix}/{page.format(l=l)}">'
+             for l in LANGS]
+    tags.append(f'<link rel="alternate" hreflang="x-default" href="{prefix}/{page.format(l="en")}">')
+    return "\n".join(tags)
+
+
+def write_site(assets: list[dict], cn: bool = False) -> None:
+    """搜索引擎收录用：首页 index.html、sitemap.xml（含图片）、robots.txt。
+    GitHub Pages 版写到仓库根目录（Pages 上 /marketing-assets/ 下，robots.txt 在项目路径下不生效，不生成）；
+    国内版写到 _generated/site-cn/，由 sync_cn.py 发布到桶根目录。国内版没设 CN_BASE_URL 时不生成。"""
+    base = CN_BASE if cn else PAGES_BASE
+    if not base:
+        return
+    out = GEN / "site-cn" if cn else ROOT
+    out.mkdir(parents=True, exist_ok=True)
+    count = {l: sum(1 for a in assets if a["lang"] == l) for l in LANGS}
+    page = f"""<!doctype html><html lang="zh"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>映翰通市场素材库 · InHand Networks Marketing Assets</title>
+<meta name="description" content="{html.escape(SITE_DESC["zh"])}">
+<link rel="canonical" href="{base}/">
+<link rel="alternate" type="text/plain" href="{base}/llms.txt" title="llms.txt">
+<link rel="alternate" type="application/json" href="{base}/catalog.json" title="catalog.json">
+<style>body{{font-family:system-ui,sans-serif;margin:24px auto;max-width:760px;padding:0 16px;color:#222;line-height:1.6}}
+a.big{{display:inline-block;margin:8px 12px 8px 0;padding:10px 18px;border:1px solid #ccc;border-radius:8px;text-decoration:none}}</style>
+<h1>映翰通市场素材库 <small>InHand Networks Marketing Assets</small></h1>
+<p>{html.escape(SITE_DESC["zh"])}</p>
+<p>{html.escape(SITE_DESC["en"])}</p>
+<p><a class="big" href="{base}/_generated/gallery/zh.html">中文素材（{count["zh"]} 个）</a>
+<a class="big" href="{base}/_generated/gallery/en.html">English assets ({count["en"]})</a></p>
+<p><small>完整素材清单（含下载地址，供程序 / AI 读取） / Full asset list for programs and AI:
+<a href="{base}/llms.txt">llms.txt</a> · <a href="{base}/catalog.json">catalog.json</a></small></p>
+</html>"""
+    write_lf(out / "index.html", page)
+
+    # sitemap：首页、两个画廊页（画廊页附带其中的原图，供图片搜索），PDF 单独列出
+    def img_url(a: dict) -> str:
+        return a.get("url_cn") if cn else f"{PAGES_BASE}/{quote(a['path'])}"
+    image_ext = {"jpg", "jpeg", "png", "webp", "gif", "svg"}
+    urls = [f"  <url><loc>{base}/</loc></url>"]
+    for lang in LANGS:
+        imgs = [a for a in assets if a["lang"] == lang and a["format"] in image_ext]
+        entries = "".join(
+            f"\n    <image:image><image:loc>{html.escape(img_url(a))}</image:loc></image:image>"
+            for a in imgs if img_url(a))
+        urls.append(f"  <url><loc>{base}/_generated/gallery/{lang}.html</loc>{entries}\n  </url>")
+    for a in assets:
+        if a["format"] == "pdf" and img_url(a):
+            urls.append(f"  <url><loc>{html.escape(img_url(a))}</loc></url>")
+    sitemap = ('<?xml version="1.0" encoding="UTF-8"?>\n'
+               '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+               'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n'
+               + "\n".join(urls) + "\n</urlset>\n")
+    write_lf(out / "sitemap.xml", sitemap)
+    if cn:
+        write_lf(out / "robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {base}/sitemap.xml\n")
 
 
 AGENT_SKILL_TEMPLATE = """---
@@ -719,6 +790,8 @@ def main() -> int:
         write_llms(assets, categories)
         write_gallery(assets, categories)
         write_gallery(assets, categories, cn=True)
+        write_site(assets)
+        write_site(assets, cn=True)
 
     report = ["# 素材自动检查报告", ""]
     report += ["## 自动整理", ""] + ([f"- {c}" for c in changes] or ["- 无"]) + [""]

@@ -44,7 +44,7 @@ UPLOADED = ROOT / ".已上传视频"          # 传到 Release 后的视频移�
 VIDEO_EXT = {".mp4", ".mov", ".m4v", ".avi", ".mkv", ".wmv", ".webm", ".mpg", ".mpeg"}
 DOC_EXT = {".pdf", ".pptx", ".ppt", ".docx", ".doc", ".key"}
 RELEASE_LIMIT = 2 * 1024 ** 3 - 1
-GENERATED = ["catalog.json", "llms.txt", "_generated"]  # 由 GitHub 端生成，本地不提交
+GENERATED = ["catalog.json", "llms.txt", "_generated", "index.html", "sitemap.xml"]  # 由 GitHub 端生成，本地不提交
 
 
 def say(msg: str = "") -> None:
