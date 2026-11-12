@@ -55,6 +55,8 @@ GLOBAL_BASE = os.environ.get(
     "GLOBAL_BASE_URL", "https://raw.githubusercontent.com/inhandnet/marketing-assets/main"
 )
 CN_BASE = os.environ.get("CN_BASE_URL", "")
+# 画廊页面的链接前缀：用完整网址，AI 抓取网页时拿到的就是能直接下载的地址（相对路径 AI 拼不出域名）
+PAGES_BASE = os.environ.get("PAGES_BASE_URL", "https://inhandnet.github.io/marketing-assets")
 
 LANG_TOKEN = re.compile(r"^(ZH|EN)$", re.I)
 VERSION_TOKEN = re.compile(r"^V\d+(\.\d+)*$", re.I)  # 只认 V1、V02、V1.0、V2.3.1 这种版本号
@@ -583,7 +585,8 @@ def write_llms(assets: list[dict], categories: dict) -> None:
                 video = a.get("video", {})
                 href = video.get("download_global") or a["url"]
                 dims = f", {a['width']}×{a['height']}" if a.get("width") else ""
-                lines.append(f"- [{name}]({href}) ({a['type']}, {a['format']}{dims}){desc}")
+                cn = f" · [国内下载 / China mirror]({a['url_cn']})" if a.get("url_cn") else ""
+                lines.append(f"- [{name}]({href}){cn} ({a['type']}, {a['format']}{dims}){desc}")
             lines.append("")
     write_lf(ROOT / "llms.txt", "\n".join(lines))
 
@@ -591,15 +594,18 @@ def write_llms(assets: list[dict], categories: dict) -> None:
 def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> None:
     """极简静态画廊：_generated/gallery/{zh,en}.html，可直接本地打开。
     cn=True 时生成国内镜像版 {zh,en}.cn.html：视频链接指向国内存储里的中文原名文件
-    （同步到国内时改名为 zh.html / en.html，所以页面内的相对链接不变）。"""
+    （同步到国内时改名为 zh.html / en.html）。
+    素材链接用完整网址（国内版用 CN_BASE_URL，GitHub 版用 Pages 地址），AI 抓网页时可以直接下载；
+    国内版没设 CN_BASE_URL 时退回相对路径。"""
+    base = (CN_BASE if cn else PAGES_BASE) or "../.."
     out_dir = GEN / "gallery"
     out_dir.mkdir(parents=True, exist_ok=True)
     text = {
-        "zh": ("映翰通市场素材", "下载", "其他", "English", "打开"),
-        "en": ("InHand Marketing Assets", "Download", "Other", "中文", "Open"),
+        "zh": ("映翰通市场素材", "下载", "其他", "English", "打开", "完整素材清单（含下载地址，供程序 / AI 读取）"),
+        "en": ("InHand Marketing Assets", "Download", "Other", "中文", "Open", "Full asset list with download URLs (for programs / AI)"),
     }
     for lang in LANGS:
-        title, dl, other, switch, view = text[lang]
+        title, dl, other, switch, view, manifest = text[lang]
         other_lang = "en" if lang == "zh" else "zh"
         groups: dict[str, dict[str, list[dict]]] = {}
         for a in assets:
@@ -615,13 +621,13 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
                 for a in groups[cat][key]:
                     name = a.get("video", {}).get("title") or Path(a["path"]).name
                     if cn and a.get("cn_key"):
-                        href = "../../" + quote(a["cn_key"])
+                        href = f"{base}/{quote(a['cn_key'])}"
                     else:
-                        href = a.get("video", {}).get("download_global") or "../../" + quote(a["path"])
+                        href = a.get("video", {}).get("download_global") or f"{base}/{quote(a['path'])}"
                     thumb = (
-                        f"<img src='../../{quote(a['thumb'])}' alt='{html.escape(a.get('description') or name)}'>"
+                        f"<img src='{base}/{quote(a['thumb'])}' alt='{html.escape(a.get('description') or name)}'>"
                         if a.get("thumb")
-                        else f"<img src='../../{quote(a['path'])}' alt='{html.escape(a.get('description') or name)}'>"
+                        else f"<img src='{base}/{quote(a['path'])}' alt='{html.escape(a.get('description') or name)}'>"
                         if a["format"] == "svg"  # SVG 浏览器可直接显示，用原图当缩略图
                         else f"<div class='ph'>{html.escape(a['type'])}</div>"
                     )
@@ -636,6 +642,8 @@ def write_gallery(assets: list[dict], categories: dict, cn: bool = False) -> Non
                 body.append("</div>")
         page = f"""<!doctype html><html lang="{lang}"><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{title}</title>
+<link rel="alternate" type="text/plain" href="{base}/llms.txt" title="llms.txt">
+<link rel="alternate" type="application/json" href="{base}/catalog.json" title="catalog.json">
 <style>body{{font-family:system-ui,sans-serif;margin:24px;color:#222}}
 .grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}}
 figure{{margin:0;border:1px solid #ddd;border-radius:8px;padding:8px}}
@@ -643,6 +651,7 @@ img,.ph{{width:100%;height:160px;object-fit:contain;background:#f5f5f5;border-ra
 .ph{{display:flex;align-items:center;justify-content:center;color:#888}}
 figcaption{{font-size:13px;margin-top:6px;word-break:break-all}}</style>
 <h1>{title} <small><a href="{other_lang}.html">{switch}</a></small></h1>
+<p><small>{manifest}: <a href="{base}/llms.txt">llms.txt</a> · <a href="{base}/catalog.json">catalog.json</a></small></p>
 {''.join(body)}</html>"""
         write_lf(out_dir / f"{lang}{'.cn' if cn else ''}.html", page)
 
