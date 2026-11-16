@@ -1111,6 +1111,25 @@
       "description": "XCR624 工业级信创路由器宽温运行海报，冷热工业场景，中文标注 -40℃ 至 +70℃。"
     },
     {
+      "path": "zh/products/XCR624/images/XCR624-多图-水库检测_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "images",
+      "model": "XCR624",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 2142509,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/XCR624/images/XCR624-%E5%A4%9A%E5%9B%BE-%E6%B0%B4%E5%BA%93%E6%A3%80%E6%B5%8B_ZH.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/products/XCR624/images/XCR624-%E5%A4%9A%E5%9B%BE-%E6%B0%B4%E5%BA%93%E6%A3%80%E6%B5%8B_ZH.pdf",
+      "display_name": "XCR624",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "工业路由器",
+      "group": "XCR624",
+      "thumb": "_generated/thumbs/zh/products/XCR624/images/XCR624-多图-水库检测_ZH.pdf.webp",
+      "description": "XCR624 水库监测中文多图素材，展示水库场景、设备组合与国产连接主题，适合方案展示。"
+    },
+    {
       "path": "zh/products/XCR624/videos/XCR624-Video-Industrial_Site_ZH.yml",
       "lang": "zh",
       "section": "products",
