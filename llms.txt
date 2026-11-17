@@ -99,6 +99,10 @@
 
 - [Mobility_车载与运输_产品宣传册_2611_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/solutions/Mobility/brochures/Mobility_%E8%BD%A6%E8%BD%BD%E4%B8%8E%E8%BF%90%E8%BE%93_%E4%BA%A7%E5%93%81%E5%AE%A3%E4%BC%A0%E5%86%8C_2611_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/solutions/Mobility/brochures/Mobility_%E8%BD%A6%E8%BD%BD%E4%B8%8E%E8%BF%90%E8%BE%93_%E4%BA%A7%E5%93%81%E5%AE%A3%E4%BC%A0%E5%86%8C_2611_ZH.pdf) (brochures, pdf): 车载与运输产品与方案目录，涵盖公共交通、工程机械、智能物流、市政公共安全及车载网关、路由器和计算机。
 
+### Outdoor Connectivity — 解决方案
+
+- [Outdoor-Connectivity_ODU12+ODU302-图片-户外连接_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-%E5%9B%BE%E7%89%87-%E6%88%B7%E5%A4%96%E8%BF%9E%E6%8E%A5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-%E5%9B%BE%E7%89%87-%E6%88%B7%E5%A4%96%E8%BF%9E%E6%8E%A5_ZH.pdf) (brochures, pdf): ODU12 与 ODU302 户外连接中文三页图文资料，封面展示两款户外路由器及型号定位。
+
 ### 公司介绍 / 画册 / 资质荣誉 — 品牌资料
 
 - [InHand_5G_Routers_Portfolio_CN_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/brand/company/InHand_5G_Routers_Portfolio_CN_ZH.pdf) (company, pdf): 映翰通全场景 5G 路由器中文产品合集，覆盖商用、户外、工业和车载场景。
@@ -340,6 +344,10 @@
 ### Mobility — Solutions
 
 - [Mobility_product-catalog_mobility_Oct28_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf) (brochures, pdf): Mobility products and services catalog covering public transport, engineering machinery, smart logistics, municipal and public safety, in-vehicle gateways and routers, on-board computers, telematics gateways, ADAS, and Smart Fleet solutions.
+
+### Outdoor Connectivity — Solutions
+
+- [Outdoor-Connectivity_ODU12+ODU302-images-Outdoor_Connectivity_EN.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-images-Outdoor_Connectivity_EN.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-images-Outdoor_Connectivity_EN.pdf) (brochures, pdf): Three-page English outdoor connectivity collateral featuring the ODU12 and ODU302 routers with product positioning on the cover.
 
 ### Company profile — Brand
 

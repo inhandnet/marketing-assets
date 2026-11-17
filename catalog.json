@@ -1207,6 +1207,23 @@
       "description": "车载与运输产品与方案目录，涵盖公共交通、工程机械、智能物流、市政公共安全及车载网关、路由器和计算机。"
     },
     {
+      "path": "zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12+ODU302-图片-户外连接_ZH.pdf",
+      "lang": "zh",
+      "section": "solutions",
+      "type": "brochures",
+      "model": null,
+      "solution": "Outdoor-Connectivity",
+      "format": "pdf",
+      "bytes": 1268492,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-%E5%9B%BE%E7%89%87-%E6%88%B7%E5%A4%96%E8%BF%9E%E6%8E%A5_ZH.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-%E5%9B%BE%E7%89%87-%E6%88%B7%E5%A4%96%E8%BF%9E%E6%8E%A5_ZH.pdf",
+      "display_name": "Outdoor Connectivity",
+      "category": "解决方案",
+      "group": "Outdoor-Connectivity",
+      "thumb": "_generated/thumbs/zh/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12+ODU302-图片-户外连接_ZH.pdf.webp",
+      "description": "ODU12 与 ODU302 户外连接中文三页图文资料，封面展示两款户外路由器及型号定位。"
+    },
+    {
       "path": "en/brand/company/InHand_5G_4G_Routers_Brochure_EN.pdf",
       "lang": "en",
       "section": "brand",
@@ -5804,6 +5821,23 @@
       "group": "Mobility",
       "thumb": "_generated/thumbs/en/solutions/Mobility/brochures/Mobility_product-catalog_mobility_Oct28_EN.pdf.webp",
       "description": "Mobility products and services catalog covering public transport, engineering machinery, smart logistics, municipal and public safety, in-vehicle gateways and routers, on-board computers, telematics gateways, ADAS, and Smart Fleet solutions."
+    },
+    {
+      "path": "en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12+ODU302-images-Outdoor_Connectivity_EN.pdf",
+      "lang": "en",
+      "section": "solutions",
+      "type": "brochures",
+      "model": null,
+      "solution": "Outdoor-Connectivity",
+      "format": "pdf",
+      "bytes": 1267877,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-images-Outdoor_Connectivity_EN.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12%2BODU302-images-Outdoor_Connectivity_EN.pdf",
+      "display_name": "Outdoor Connectivity",
+      "category": "Solutions",
+      "group": "Outdoor-Connectivity",
+      "thumb": "_generated/thumbs/en/solutions/Outdoor-Connectivity/brochures/Outdoor-Connectivity_ODU12+ODU302-images-Outdoor_Connectivity_EN.pdf.webp",
+      "description": "Three-page English outdoor connectivity collateral featuring the ODU12 and ODU302 routers with product positioning on the cover."
     }
   ]
 }
