@@ -8,6 +8,8 @@
 
 - `zh/products/CR602/images/CR602-图片-4_5使用场景_ZH.png`：型号 `CR602` 不在中文官网 inhand.com.cn的产品列表中，请检查拼写或是否放错语言
 - `zh/products/CR602/images/CR602-图片-蓝白冰原背景中_ZH.png`：型号 `CR602` 不在中文官网 inhand.com.cn的产品列表中，请检查拼写或是否放错语言
+- `zh/products/Core62L31/brochures/Core62L31_产品彩页_ZH.pdf`：型号 `Core62L31` 不在中文官网 inhand.com.cn的产品列表中，请检查拼写或是否放错语言
+- `zh/products/Core6734/brochures/Core6734_产品彩页_ZH.pptx`：型号 `Core6734` 不在中文官网 inhand.com.cn的产品列表中，请检查拼写或是否放错语言
 - `zh/products/FWA12/images/FWA12-图片-正面置于蓝色圆形展台上_ZH.jpg`：型号 `FWA12` 不在中文官网 inhand.com.cn的产品列表中，请检查拼写或是否放错语言
 - `en/products/CR602/images/CR602-Image-5G_backup_EN.png`：23.7 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 - `en/products/CR602/images/CR602-Image-Router_Sits_Ice_Cream_EN.png`：20.1 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片

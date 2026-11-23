@@ -15,13 +15,26 @@
 - [CR602-图片-4_5使用场景_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/CR602/images/CR602-%E5%9B%BE%E7%89%87-4_5%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF_ZH.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/CR602/images/CR602-%E5%9B%BE%E7%89%87-4_5%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF_ZH.png) (images, png, 800×1000): 咖啡店柜台上的收银屏、扫码设备和刷卡终端，暖色室内背景，无清晰文字。
 - [CR602-图片-蓝白冰原背景中_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/CR602/images/CR602-%E5%9B%BE%E7%89%87-%E8%93%9D%E7%99%BD%E5%86%B0%E5%8E%9F%E8%83%8C%E6%99%AF%E4%B8%AD_ZH.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/CR602/images/CR602-%E5%9B%BE%E7%89%87-%E8%93%9D%E7%99%BD%E5%86%B0%E5%8E%9F%E8%83%8C%E6%99%AF%E4%B8%AD_ZH.png) (images, png, 800×586): 蓝白冰原背景中，CR602黑色设备悬浮展示，无宣传文字。
 
+### Core62L31 — 
+
+- [Core62L31_产品彩页_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/Core62L31/brochures/Core62L31_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/Core62L31/brochures/Core62L31_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) (brochures, pdf): Core62L31 核心板中文产品彩页，介绍产品特点、接口配置与应用方向。
+
+### Core6734 — 
+
+- [Core6734_产品彩页_ZH.pptx](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/Core6734/brochures/Core6734_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pptx) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/Core6734/brochures/Core6734_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pptx) (brochures, pptx): Core6734 核心板中文产品彩页，介绍多屏显示、接口配置与边缘计算应用。
+
 ### EC312 — 边缘网关 & 边缘计算机
 
 - [EC312-图片-楼宇园区系列_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/EC312/brochures/EC312-%E5%9B%BE%E7%89%87-%E6%A5%BC%E5%AE%87%E5%9B%AD%E5%8C%BA%E7%B3%BB%E5%88%97_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/EC312/brochures/EC312-%E5%9B%BE%E7%89%87-%E6%A5%BC%E5%AE%87%E5%9B%AD%E5%8C%BA%E7%B3%BB%E5%88%97_ZH.pdf) (brochures, pdf): 5张楼宇园区系列图：屋顶产品、运维难点卡片、连接示意图、LoRaWAN部署卡与数据光轨。
+- [EC312_产品彩页_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/EC312/brochures/EC312_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/EC312/brochures/EC312_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) (brochures, pdf): EC312 系列安全型边缘计算机中文彩页，介绍产品能力与典型应用场景。
 
 ### FWA12 — 
 
 - [FWA12-图片-正面置于蓝色圆形展台上_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/FWA12/images/FWA12-%E5%9B%BE%E7%89%87-%E6%AD%A3%E9%9D%A2%E7%BD%AE%E4%BA%8E%E8%93%9D%E8%89%B2%E5%9C%86%E5%BD%A2%E5%B1%95%E5%8F%B0%E4%B8%8A_ZH.jpg) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/FWA12/images/FWA12-%E5%9B%BE%E7%89%87-%E6%AD%A3%E9%9D%A2%E7%BD%AE%E4%BA%8E%E8%93%9D%E8%89%B2%E5%9C%86%E5%BD%A2%E5%B1%95%E5%8F%B0%E4%B8%8A_ZH.jpg) (images, jpg, 1200×848): FWA12正面置于蓝色圆形展台上，背景为雪山与湖面，画面无文字。
+
+### IG502 — 边缘网关 & 边缘计算机
+
+- [IG502_产品彩页_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/IG502/brochures/IG502_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/IG502/brochures/IG502_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) (brochures, pdf): IG502 系列边缘网关中文彩页，介绍产品特点与工业应用场景。
 
 ### IR315 — 5G & 4G 路由器 / 工业路由器
 
@@ -60,6 +73,14 @@
 - [InCloud-Manager-图片-Upgrade_Precheck_Process_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager-%E5%9B%BE%E7%89%87-Upgrade_Precheck_Process_ZH.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/InCloud-Manager/images/InCloud-Manager-%E5%9B%BE%E7%89%87-Upgrade_Precheck_Process_ZH.png) (images, png, 1122×1402): 企业网络设备升级前登录、版本排查与逐台对比流程海报，中文文字。
 - [InCloud-Manager_agent-单图-incloud_skill_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/InCloud-Manager/images/InCloud-Manager_agent-%E5%8D%95%E5%9B%BE-incloud_skill_ZH.jpg) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/InCloud-Manager/images/InCloud-Manager_agent-%E5%8D%95%E5%9B%BE-incloud_skill_ZH.jpg) (images, jpg, 1122×1402): InCloud Skill 中文海报，展示 AI Agent 获得设备查询、故障诊断和网络运维能力。
 
+### Mo 62A — AI 边缘计算机
+
+- [Mo-62A_产品彩页_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/Mo-62A/brochures/Mo-62A_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/Mo-62A/brochures/Mo-62A_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) (brochures, pdf): Mo-62A AI 单板计算机中文彩页，介绍系统配置、接口与边缘 AI 能力。
+
+### Mo 68A — AI 边缘计算机
+
+- [Mo-68A_产品彩页_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/Mo-68A/brochures/Mo-68A_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/Mo-68A/brochures/Mo-68A_%E4%BA%A7%E5%93%81%E5%BD%A9%E9%A1%B5_ZH.pdf) (brochures, pdf): Mo-68A AI 单板计算机中文彩页，介绍系统配置、接口与边缘 AI 能力。
+
 ### ODU12 — 5G & 4G 路由器 / 室外路由器
 
 - [ODU12-图片-产品多视角_ZH.pdf](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12-%E5%9B%BE%E7%89%87-%E4%BA%A7%E5%93%81%E5%A4%9A%E8%A7%86%E8%A7%92_ZH.pdf) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/ODU12/brochures/ODU12-%E5%9B%BE%E7%89%87-%E4%BA%A7%E5%93%81%E5%A4%9A%E8%A7%86%E8%A7%92_ZH.pdf) (brochures, pdf): 4张ODU12透明背景产品图，展示四个不同视角。
@@ -80,6 +101,7 @@
 - [ODU302-图片-Three_Mounting_Options_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/images/ODU302-%E5%9B%BE%E7%89%87-Three_Mounting_Options_ZH.jpg) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/ODU302/images/ODU302-%E5%9B%BE%E7%89%87-Three_Mounting_Options_ZH.jpg) (images, jpg, 3840×4800): ODU302 三种安装方式中文宣传图，展示壁挂、顶部和抱杆安装。
 - [ODU302-图片-Two_Power_Options_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU302/images/ODU302-%E5%9B%BE%E7%89%87-Two_Power_Options_ZH.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/ODU302/images/ODU302-%E5%9B%BE%E7%89%87-Two_Power_Options_ZH.png) (images, png, 1122×1402): ODU302 双供电方式中文宣传图，展示 PoE、9–36V DC 供电及多种户外部署场景。
 - [ODU302_Parking-CN](https://github.com/inhandnet/marketing-assets/releases/download/ODU302-zh/ODU302-Video-Parking_ZH.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/ODU302/videos/ODU302_Parking-CN.mov) (videos, video): 看起来在表现车辆驶入地下停车场时的信号受阻场景。
+- [视频-柜外安装](https://github.com/inhandnet/marketing-assets/releases/download/ODU302-zh/ODU302_Video-a425a2_ZH.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/ODU302/videos/%E8%A7%86%E9%A2%91-%E6%9F%9C%E5%A4%96%E5%AE%89%E8%A3%85.mov) (videos, video): ODU302 中文视频，展示设备在机柜外部的安装方式。
 
 ### VR624 — 车载网关 / 车载路由器
 
@@ -341,6 +363,7 @@
 - [ODU302-Image-Warehouse_Cutaway_Diagram_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU302/images/ODU302-Image-Warehouse_Cutaway_Diagram_EN.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/ODU302/images/ODU302-Image-Warehouse_Cutaway_Diagram_EN.png) (images, png, 1134×1417): Warehouse cutaway diagram showing an exterior ODU302 linked to indoor devices, platforms, and a switch, with English labels, transparent background.
 - [ODU302_Parking](https://github.com/inhandnet/marketing-assets/releases/download/ODU302-en/ODU302-Video-Parking_EN.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/ODU302/videos/ODU302_Parking.mov) (videos, video): A car approaches an underground garage where concrete can weaken cellular signals.
 - [ODU302 Yard Layout Change](https://github.com/inhandnet/marketing-assets/releases/download/ODU302-en/ODU302-Video-Yard_Layout_Change_EN.mp4) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/ODU302/videos/ODU302%20Yard%20Layout%20Change.mp4) (videos, video)
+- [Video-Outside_Cabinet_Installation](https://github.com/inhandnet/marketing-assets/releases/download/ODU302-en/ODU302_Video-Outside_Cabinet_Installation_EN.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/ODU302/videos/Video-Outside_Cabinet_Installation.mov) (videos, video): English ODU302 video demonstrating installation outside a cabinet.
 
 ### VR624 — Vehicle Gateways / Vehicle Routers
 
