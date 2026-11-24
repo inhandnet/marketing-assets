@@ -2,8 +2,7 @@
 
 ## 自动整理
 
-- zh/products/CPE02/images/CPE02_Retail Store Connectivity_ZH.png → zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png
-- en/products/CPE02/images/CPE02_Retail Store Connectivity_EN.png → en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png
+- 无
 
 ## 需要人工处理
 
