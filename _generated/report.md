@@ -2,8 +2,7 @@
 
 ## 自动整理
 
-- zh/products/VR624/images/VR624_In_Vehicle_Router_Integrating Feature Points with Scenarios_ZH.pdf → zh/products/VR624/images/VR624_In_Vehicle_Router_Integrating_Feature_Points_with_Scenarios_ZH.pdf
-- en/products/VR624/images/VR624_In_Vehicle_Router_Integrating Feature Points with Scenarios_EN.pdf → en/products/VR624/images/VR624_In_Vehicle_Router_Integrating_Feature_Points_with_Scenarios_EN.pdf
+- 无
 
 ## 需要人工处理
 
