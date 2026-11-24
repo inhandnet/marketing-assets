@@ -8,6 +8,7 @@
 ### CPE02 — 5G & 4G 路由器 / 企业路由器
 
 - [CPE02-图片-白色CPE02置于办公桌前_ZH.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/CPE02/images/CPE02-%E5%9B%BE%E7%89%87-%E7%99%BD%E8%89%B2CPE02%E7%BD%AE%E4%BA%8E%E5%8A%9E%E5%85%AC%E6%A1%8C%E5%89%8D_ZH.jpg) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/CPE02/images/CPE02-%E5%9B%BE%E7%89%87-%E7%99%BD%E8%89%B2CPE02%E7%BD%AE%E4%BA%8E%E5%8A%9E%E5%85%AC%E6%A1%8C%E5%89%8D_ZH.jpg) (images, jpg, 1440×2560): 白色CPE02置于办公桌前，背景为办公室与光纤待安装日历，画面含中文文案。
+- [CPE02_Retail_Store_Connectivity_ZH.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png) (images, png, 1200×1500)
 - [CN_CPE02](https://github.com/inhandnet/marketing-assets/releases/download/CPE02-zh/CPE02-Video-Fiber_Install_Pending_ZH.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/zh/products/CPE02/videos/CN_CPE02.mov) (videos, video): 现代办公室画面上方出现“光纤安装：待排期”的提示。
 
 ### CR602 — 
@@ -138,6 +139,7 @@
 ### CPE02 — 5G & 4G Routers / Business Routers
 
 - [CPE02-Image-Office_Desk_Cover_EN.jpg](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CPE02/images/CPE02-Image-Office_Desk_Cover_EN.jpg) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/CPE02/images/CPE02-Image-Office_Desk_Cover_EN.jpg) (images, jpg, 1440×2560): White CPE02 shown front-facing on a desk, with an office scene, a fiber-pending calendar, and English text.
+- [CPE02_Retail_Store_Connectivity_EN.png](https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png) (images, png, 1200×1500)
 - [CPE02 Fiber Pending Office](https://github.com/inhandnet/marketing-assets/releases/download/CPE02-en/CPE02-Video-Fiber_Pending_Office_EN.mov) · [国内下载 / China mirror](https://media-hub.inhand.com.cn/en/products/CPE02/videos/CPE02%20Fiber%20Pending%20Office.mov) (videos, video)
 
 ### CR602 — 5G & 4G Routers / Battery-Powered Routers

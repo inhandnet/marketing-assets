@@ -2,7 +2,8 @@
 
 ## 自动整理
 
-- 无
+- zh/products/CPE02/images/CPE02_Retail Store Connectivity_ZH.png → zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png
+- en/products/CPE02/images/CPE02_Retail Store Connectivity_EN.png → en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png
 
 ## 需要人工处理
 
@@ -17,10 +18,12 @@
 - `en/products/ODU12/images/ODU12-Image-Rural_Outdoor_5G_Coming_Soon_EN.png`：22.3 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 - `en/products/ODU12/images/ODU12-Image-Urban_Outdoor_5G_Coming_Soon_EN.png`：22.0 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 
-## 没有描述的素材（21 个，说「补全素材描述」可补上）
+## 没有描述的素材（23 个，说「补全素材描述」可补上）
 
+· zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png
 · zh/products/IR602/videos/IR602-Video-Factory_Monitoring_ZH.yml
 · zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
+· en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png
 · en/products/CPE02/videos/CPE02-Video-Fiber_Pending_Office_EN.yml
 · en/products/CR602/videos/CR602-Video-Animation_EN.yml
 · en/products/CR602/videos/CR602-Video-Burger_Shop_EN.yml
