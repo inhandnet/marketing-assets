@@ -17,11 +17,10 @@
 - `en/products/ODU12/images/ODU12-Image-Rural_Outdoor_5G_Coming_Soon_EN.png`：22.3 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 - `en/products/ODU12/images/ODU12-Image-Urban_Outdoor_5G_Coming_Soon_EN.png`：22.0 MB，超过 20 MB，可以说「压缩并上传素材」压缩图片
 
-## 没有描述的素材（25 个，说「补全素材描述」可补上）
+## 没有描述的素材（23 个，说「补全素材描述」可补上）
 
 · zh/products/CPE02/images/CPE02_Retail_Store_Connectivity_ZH.png
 · zh/products/IR602/videos/IR602-Video-Factory_Monitoring_ZH.yml
-· zh/products/VR624/images/VR624_In_Vehicle_Router_Integrating_Feature_Points_with_Scenarios_ZH.pdf
 · zh/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_ZH.pdf
 · en/products/CPE02/images/CPE02_Retail_Store_Connectivity_EN.png
 · en/products/CPE02/videos/CPE02-Video-Fiber_Pending_Office_EN.yml
@@ -42,5 +41,4 @@
 · en/products/ODU12/videos/ODU12-Video-Closeup_Teaser_EN.yml
 · en/products/ODU12/videos/ODU12-Video-Warehouse_Loading_Dock_EN.yml
 · en/products/ODU302/videos/ODU302-Video-Yard_Layout_Change_EN.yml
-· en/products/VR624/images/VR624_In_Vehicle_Router_Integrating_Feature_Points_with_Scenarios_EN.pdf
 · en/products/VR624/images/VR624_In_Vehicle_Router_New_Product_Launch_EN.pdf
