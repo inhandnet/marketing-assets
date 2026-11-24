@@ -794,6 +794,25 @@
       "description": "Mo-68A AI 单板计算机中文彩页，介绍系统配置、接口与边缘 AI 能力。"
     },
     {
+      "path": "zh/products/ODU12/brochures/ODU12-图片-产品亮点_ZH.pdf",
+      "lang": "zh",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU12",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1169506,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/zh/products/ODU12/brochures/ODU12-%E5%9B%BE%E7%89%87-%E4%BA%A7%E5%93%81%E4%BA%AE%E7%82%B9_ZH.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/zh/products/ODU12/brochures/ODU12-%E5%9B%BE%E7%89%87-%E4%BA%A7%E5%93%81%E4%BA%AE%E7%82%B9_ZH.pdf",
+      "display_name": "ODU12",
+      "category": "5G & 4G 路由器",
+      "category_slug": "routers",
+      "series": "室外路由器",
+      "group": "ODU12",
+      "thumb": "_generated/thumbs/zh/products/ODU12/brochures/ODU12-图片-产品亮点_ZH.pdf.webp",
+      "description": "ODU12 中文三页产品亮点图文资料，封面为露台墙面安装场景并标注 5G 户外 AI 原生路由器。"
+    },
+    {
       "path": "zh/products/ODU12/brochures/ODU12-图片-产品多视角_ZH.pdf",
       "lang": "zh",
       "section": "products",
@@ -5092,6 +5111,25 @@
       "group": "ODU12",
       "thumb": "_generated/thumbs/en/products/ODU12/brochures/ODU12-Image-Product-View-Series_EN.pdf.webp",
       "description": "Four transparent-background product views of ODU12 from different angles."
+    },
+    {
+      "path": "en/products/ODU12/brochures/ODU12_-_images-product_features_EN.pdf",
+      "lang": "en",
+      "section": "products",
+      "type": "brochures",
+      "model": "ODU12",
+      "solution": null,
+      "format": "pdf",
+      "bytes": 1138420,
+      "url": "https://raw.githubusercontent.com/inhandnet/marketing-assets/main/en/products/ODU12/brochures/ODU12_-_images-product_features_EN.pdf",
+      "url_cn": "https://media-hub.inhand.com.cn/en/products/ODU12/brochures/ODU12_-_images-product_features_EN.pdf",
+      "display_name": "ODU12",
+      "category": "5G & 4G Routers",
+      "category_slug": "routers",
+      "series": "Outdoor Routers",
+      "group": "ODU12",
+      "thumb": "_generated/thumbs/en/products/ODU12/brochures/ODU12_-_images-product_features_EN.pdf.webp",
+      "description": "Three-page English ODU12 product highlights collateral with a terrace wall-mount cover and 5G outdoor AI-native router positioning."
     },
     {
       "path": "en/products/ODU12/images/ODU12-Image-Factory_Yard_&_Construction_Site_Rugged_5G_Outdoor_Industrial_Network_EN.jpg",
